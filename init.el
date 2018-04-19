@@ -16,21 +16,14 @@
 
 ;; bootstrap config
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-
 (require 'config-elpa)
 ;; (package-initialize)
 
-(require 'config-common)
-
+;; features and other modes config
 (require-package 'use-package)
 
-(use-package evil
-  :ensure t
-  :config
-  (evil-mode 1)
-  (use-package evil-leader
-    :ensure t
-    :config
-    (global-evil-leader-mode)
-    (evil-leader/set-leader ",")))
+(require 'config-common)
+(require 'config-evil)
+(require 'config-magit)
+
 
