@@ -23,6 +23,8 @@
 (require-package 'use-package)
 
 (require 'config-common)
+(require 'config-theme)
+(require 'config-edit)
 (require 'config-evil)
 (require 'config-magit)
 
