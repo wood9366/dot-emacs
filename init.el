@@ -6,6 +6,8 @@
   (error "Your emacs is too old -- this config requires v24 of higher"))
 
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+
+(require 'config-benchmarking) ;; Measure startup time
       
 ;; Adjust garbage collection thresholds during startup, and thereafter
 (let ((normal-gc-cons-threshold (* 20 1024 1024))
