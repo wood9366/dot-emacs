@@ -2,6 +2,7 @@
 
 (use-package ivy
   :ensure t
+  :diminish ivy-mode
   :init
   (add-hook 'after-init-hook 'ivy-mode)
   :config
@@ -21,11 +22,6 @@
 
   (define-key ivy-minibuffer-map (kbd "<up>") #'ivy-previous-line-or-history)
 
-  (use-package diminish
-    :ensure t
-    :config
-    (diminish 'ivy-mode))
-
   (defun sanityinc/enable-ivy-flx-matching ()
     "Make `ivy' matching work more like IDO."
     (interactive)
@@ -33,22 +29,25 @@
     (setq-default ivy-re-builders-alist
                   '((t . ivy--regex-fuzzy)))))
 
-
 (use-package ivy-historian
   :ensure t
   :init
   (add-hook 'after-init-hook (lambda () (ivy-historian-mode t))))
 
+(use-package ivy-xref
+  :ensure t
+  :config
+  (setq xref-show-xrefs-function 'ivy-xref-show-xrefs))
+
+
 (use-package counsel
   :ensure t
+  :diminish counsel-mode
   :init
   (add-hook 'after-init-hook 'counsel-mode)
   :config
-  (setq-default counsel-mode-override-describe-bindings t)
-  (use-package diminish
-    :ensure t
-    :config
-    (diminish 'counsel-mode)))
+  (setq-default counsel-mode-override-describe-bindings t))
+
 
 (use-package swiper
   :ensure t
@@ -59,13 +58,7 @@
     (interactive (list (thing-at-point 'symbol)))
     (swiper sym))
 
-  (define-key ivy-mode-map (kbd "M-s /") 'sanityinc/swiper-at-point))
-
-
-(use-package ivy-xref
-  :ensure t
-  :config
-  (setq xref-show-xrefs-function 'ivy-xref-show-xrefs))
+  (define-key ivy-mode-map (kbd "C-s") 'sanityinc/swiper-at-point))
 
 
 (provide 'config-ivy)
