@@ -7,6 +7,7 @@
   :ensure t
   :init
   (add-hook 'after-init-hook 'global-evil-leader-mode)
+  :after (evil)
   :config
   (evil-leader/set-leader ","))
 
