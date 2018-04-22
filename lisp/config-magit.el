@@ -1,10 +1,10 @@
 (use-package magit
-  :ensure t
-  :config
-  (evil-leader/set-key "gg" 'magit-status))
+  :ensure t)
 
 (use-package evil-magit
   :ensure t
-  :after (magit evil))
+  :after (magit evil)
+  :config
+  (evil-leader/set-key "gg" 'magit-status))
 
 (provide 'config-magit)
