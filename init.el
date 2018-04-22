@@ -25,9 +25,10 @@
 (require-package 'use-package)
 
 (require 'config-common)
+(require 'config-exec-path)
 (require 'config-theme)
 (require 'config-edit)
 (require 'config-evil)
 (require 'config-magit)
-
-
+(require 'config-ivy)
+(require 'config-projectile)
