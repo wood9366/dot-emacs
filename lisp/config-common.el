@@ -26,4 +26,6 @@
 ;; remap M-x key bind to C-c C-m
 (global-set-key (kbd "C-c C-m") 'execute-extended-command)
 
+(use-package diminish :ensure t)
+
 (provide 'config-common)
