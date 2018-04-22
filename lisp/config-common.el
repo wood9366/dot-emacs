@@ -5,9 +5,6 @@
 ;; hide scroll bar
 (scroll-bar-mode -1)
 
-;; enable static elisp variable binding
-(setq lexical-binding t)
-
 ;; hide startup message
 (setq inhibit-startup-message t)
 (setq inhibit-startup-echo-area-message t)
@@ -25,5 +22,8 @@
 (let* ((backup-dir (concat user-emacs-directory "backups/")))
   (unless (file-directory-p backup-dir) (make-directory backup-dir t))
   (setq backup-directory-alist `((".*" . ,backup-dir))))
+
+;; remap M-x key bind to C-c C-m
+(global-set-key (kbd "C-c C-m") 'execute-extended-command)
 
 (provide 'config-common)
