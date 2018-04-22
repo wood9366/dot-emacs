@@ -4,3 +4,5 @@ autosaves/
 backups/
 
 custom.el
+/.historian
+/recentf
