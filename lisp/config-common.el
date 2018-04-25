@@ -26,4 +26,9 @@
 ;; remap M-x key bind to C-c C-m
 (global-set-key (kbd "C-c C-m") 'execute-extended-command)
 
+(use-package mode-line-bell
+  :ensure t
+  :init
+  (add-hook 'after-init-hook 'mode-line-bell-mode))
+
 (provide 'config-common)
