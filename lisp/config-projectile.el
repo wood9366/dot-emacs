@@ -35,7 +35,7 @@ instead."
   (use-package evil
     :config
     (evil-leader/set-key "ps" 'sanityinc/counsel-search-project)
-    (evil-leader/set-key "pp" 'counsel-projectile-find-file)
+    (evil-leader/set-key "pp" 'counsel-projectile)
     (evil-leader/set-key "pw" 'counsel-projectile-switch-project)))
 
 
