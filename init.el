@@ -24,6 +24,8 @@
 ;; features and other modes config
 (require-package 'use-package)
 
+(use-package diminish :ensure t)
+
 (require 'config-common)
 (require 'config-exec-path)
 (require 'config-theme)
