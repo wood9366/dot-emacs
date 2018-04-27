@@ -26,9 +26,17 @@
 ;; remap M-x key bind to C-c C-m
 (global-set-key (kbd "C-c C-m") 'execute-extended-command)
 
+;; use ibuffer instead of old buffer list
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+
 (use-package mode-line-bell
   :ensure t
   :init
   (add-hook 'after-init-hook 'mode-line-bell-mode))
+
+;; display difference name for same name buffer
+(use-package uniquify
+  :init
+  (setq uniquify-buffer-name-style 'forward))
 
 (provide 'config-common)
