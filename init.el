@@ -32,5 +32,6 @@
 (require 'config-edit)
 (require 'config-evil)
 (require 'config-magit)
+(require 'config-smex)
 (require 'config-ivy)
 (require 'config-projectile)
