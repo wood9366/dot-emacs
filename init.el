@@ -41,5 +41,6 @@
 (require 'config-smex)
 (require 'config-ivy)
 (require 'config-projectile)
+(require 'config-sessions)
 
 (require 'config-magit)
