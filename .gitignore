@@ -6,3 +6,4 @@ backups/
 custom.el
 /.historian
 /recentf
+/.smex-items
