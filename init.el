@@ -21,6 +21,10 @@
 (require 'config-elpa)
 ;; (package-initialize)
 
+;; declare platform variables
+(defvar _mac_ (eq system-type 'darwin))
+(defvar _win_ (eq system-type 'windows-nt))
+
 ;; features and other modes config
 (require-package 'use-package)
 
