@@ -31,6 +31,12 @@
 
 (global-set-key "\C-w" 'backward-kill-word)
 
+(use-package undo-tree
+  :ensure t
+  :diminish undo-tree-mode
+  :init
+  (add-hook 'after-init-hook 'global-undo-tree-mode))
+
 ;; highlight escape sequence
 (use-package highlight-escape-sequences
   :ensure t
