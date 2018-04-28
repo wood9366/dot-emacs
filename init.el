@@ -42,5 +42,6 @@
 (require 'config-ivy)
 (require 'config-projectile)
 (require 'config-sessions)
+(require 'config-windows)
 
 (require 'config-magit)
