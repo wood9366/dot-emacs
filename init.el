@@ -43,5 +43,6 @@
 (require 'config-projectile)
 (require 'config-sessions)
 (require 'config-windows)
+(require 'config-dired)
 
 (require 'config-magit)
