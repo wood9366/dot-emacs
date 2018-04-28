@@ -3,7 +3,10 @@
 (use-package projectile
   :ensure t
   :after (counsel ivy)
+  :init
+  (add-hook 'after-init-hook 'projectile-global-mode)
   :config
+  (setq projectile-enable-caching t)
   (setq projectile-completion-system 'ivy))
 
 (use-package counsel-projectile
