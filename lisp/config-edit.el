@@ -26,6 +26,9 @@
 (use-package subword
   :diminish subword-mode)
 
+(when (fboundp 'global-prettify-symbols-mode)
+  (add-hook 'after-init-hook 'global-prettify-symbols-mode))
+
 (global-set-key "\C-w" 'backward-kill-word)
 
 ;; highlight escape sequence
