@@ -23,6 +23,9 @@
  indent-tabs-mode nil ;; replace tab with space
  default-tab-width 4) 
 
+(use-package subword
+  :diminish subword-mode)
+
 (global-set-key "\C-w" 'backward-kill-word)
 
 ;; highlight escape sequence
