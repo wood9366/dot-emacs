@@ -31,6 +31,15 @@
 
 (global-set-key "\C-w" 'backward-kill-word)
 
+(use-package browse-kill-ring
+  :ensure t
+  :init
+  (global-set-key (kbd "M-y") 'browse-kill-ring)
+  :config
+  (define-key browse-kill-ring-mode-map (kbd "j") 'browse-kill-ring-forward)
+  (define-key browse-kill-ring-mode-map (kbd "k") 'browse-kill-ring-previous)
+  (define-key browse-kill-ring-mode-map (kbd "q") 'browse-kill-ring-quit))
+
 (use-package undo-tree
   :ensure t
   :diminish undo-tree-mode
