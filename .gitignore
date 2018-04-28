@@ -7,3 +7,7 @@ custom.el
 /.historian
 /recentf
 /.smex-items
+/.emacs.desktop
+/.session
+/history
+*.lock
