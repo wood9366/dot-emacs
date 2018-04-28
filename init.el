@@ -32,10 +32,14 @@
 
 (require 'config-common)
 (require 'config-exec-path)
+(require 'config-osx)
 (require 'config-theme)
-(require 'config-edit)
 (require 'config-evil)
-(require 'config-magit)
+
+(require 'config-edit)
+
 (require 'config-smex)
 (require 'config-ivy)
 (require 'config-projectile)
+
+(require 'config-magit)
