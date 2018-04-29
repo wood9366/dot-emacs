@@ -13,3 +13,4 @@ custom.el
 *.lock
 /projectile.cache
 /projectile-bookmarks.eld
+/.mc-lists.el

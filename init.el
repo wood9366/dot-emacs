@@ -37,6 +37,7 @@
 (require 'config-evil)
 
 (require 'config-edit)
+(require 'config-multiple-cursor)
 
 (require 'config-smex)
 (require 'config-ivy)
