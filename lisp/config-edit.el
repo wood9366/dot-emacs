@@ -24,7 +24,9 @@
               default-tab-width 4) 
 
 (use-package subword
-  :diminish subword-mode)
+  :diminish subword-mode
+  :init
+  (add-hook 'c-mode-common-hook 'subword-mode))
 
 (when (fboundp 'global-prettify-symbols-mode)
   (add-hook 'after-init-hook 'global-prettify-symbols-mode))
