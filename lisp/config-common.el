@@ -36,4 +36,6 @@
   :init
   (setq uniquify-buffer-name-style 'forward))
 
+(diminish 'auto-revert-mode)
+
 (provide 'config-common)
