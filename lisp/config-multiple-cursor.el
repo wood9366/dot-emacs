@@ -1,6 +1,6 @@
 (use-package evil-mc
   :ensure t
-  :after (evil)
+  :requires (evil)
   :init
   (add-hook 'after-init-hook 'global-evil-mc-mode)
   :config
