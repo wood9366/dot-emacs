@@ -29,6 +29,7 @@
 (require-package 'use-package)
 
 (use-package diminish :ensure t)
+(use-package fullframe :ensure t)
 
 (require 'config-common)
 (require 'config-exec-path)
@@ -36,6 +37,7 @@
 (require 'config-theme)
 (require 'config-evil)
 
+(require 'config-ibuffer)
 (require 'config-edit)
 (require 'config-multiple-cursor)
 
