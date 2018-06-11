@@ -5,22 +5,20 @@
   :diminish ivy-mode
   :init
   (add-hook 'after-init-hook 'ivy-mode)
+  :bind ((:map ivy-minibuffer-map)
+         ("RET" . ivy-alt-done)
+         ("C-RET" . ivy-immediate-done)
+         ("C-k" . ivy-previous-line-or-history)
+         ("C-j" . ivy-next-line-or-history))
   :config
   (setq-default ivy-use-virtual-buffers t
-		ivy-virtual-abbreviate 'fullpath
-		ivy-count-format ""
-		ivy-magic-tilde nil
-		ivy-dynamic-exhibit-delay-ms 150
-		ivy-initial-inputs-alist
-		'((man . "^")
-		  (woman . "^")))
-
-  ;; IDO-style directory navigation
-  (define-key ivy-minibuffer-map (kbd "RET") #'ivy-alt-done)
-  (dolist (k '("C-j" "C-RET"))
-    (define-key ivy-minibuffer-map (kbd k) #'ivy-immediate-done))
-
-  (define-key ivy-minibuffer-map (kbd "<up>") #'ivy-previous-line-or-history)
+                ivy-virtual-abbreviate 'fullpath
+                ivy-count-format ""
+                ivy-magic-tilde nil
+                ivy-dynamic-exhibit-delay-ms 150
+                ivy-initial-inputs-alist
+                '((man . "^")
+                  (woman . "^")))
 
   (defun sanityinc/enable-ivy-flx-matching ()
     "Make `ivy' matching work more like IDO."
@@ -31,11 +29,13 @@
 
 (use-package ivy-historian
   :ensure t
+  :after (ivy)
   :init
   (add-hook 'after-init-hook (lambda () (ivy-historian-mode t))))
 
 (use-package ivy-xref
   :ensure t
+  :after (ivy)
   :config
   (setq xref-show-xrefs-function 'ivy-xref-show-xrefs))
 
