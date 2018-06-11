@@ -40,6 +40,7 @@
 (require 'config-ibuffer)
 (require 'config-edit)
 (require 'config-multiple-cursor)
+(require 'config-linum)
 
 (require 'config-smex)
 (require 'config-ivy)
