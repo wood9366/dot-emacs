@@ -1,13 +1,13 @@
 
 ;; show parenthese
-;; (use-package highlight-parentheses
-;;   :ensure t
-;;   :init
-;;   (add-hook 'after-init-hook 'global-highlight-parentheses-mode))
-;;   :config
-;;   (custom-set-variables '(hl-paren-attributes (quote nil)))
-;;   (custom-set-variables '(hl-paren-background-colors '("blue" "green" "yellow" "red")))
-;;   (custom-set-variables '(hl-paren-colors (quote nil)))
+(use-package highlight-parentheses
+  :ensure t
+  :init
+  (add-hook 'after-init-hook 'global-highlight-parentheses-mode)
+  :custom
+  (hl-paren-attributes 'nil)
+  (hl-paren-background-colors '("#FF0000" "#00FF00" "#0000FF" "#FFFF00" "#00FFFF" "#FF00FF" "#800000" "#008000" "#000080" "#808000" "#008080" "#800080"))
+  (hl-paren-colors 'nil))
 
 (add-hook 'after-init-hook 'show-paren-mode)
 
