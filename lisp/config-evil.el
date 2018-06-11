@@ -33,6 +33,7 @@
 
 (use-package evil-escape
   :ensure t
+  :diminish
   :requires (evil)
   :init
   (add-hook 'after-init-hook 'evil-escape-mode)

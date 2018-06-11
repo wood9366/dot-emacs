@@ -2,6 +2,7 @@
 ;; highlight all level of parentheses
 (use-package highlight-parentheses
   :ensure t
+  :diminish
   :init
   (add-hook 'prog-mode-hook 'global-highlight-parentheses-mode)
   :custom

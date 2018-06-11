@@ -36,6 +36,6 @@
   :init
   (setq uniquify-buffer-name-style 'forward))
 
-(diminish 'auto-revert-mode)
+(add-hook 'after-init-hook (lambda () (diminish 'auto-revert-mode)))
 
 (provide 'config-common)
