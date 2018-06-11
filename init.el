@@ -39,6 +39,7 @@
 
 (require 'config-ibuffer)
 (require 'config-edit)
+(require 'config-expand-region)
 (require 'config-multiple-cursor)
 (require 'config-linum)
 
