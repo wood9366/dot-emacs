@@ -43,6 +43,7 @@
 
 (use-package undo-tree
   :ensure t
+  :diminish undo-tree-mode
   :init
   (add-hook 'after-init-hook 'global-undo-tree-mode))
 
