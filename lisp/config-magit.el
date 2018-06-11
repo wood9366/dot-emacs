@@ -1,10 +1,12 @@
 (use-package magit
-  :ensure t)
+  :ensure t
+  :bind ("C-x g" . magit-status)
+  :config
+  (fullframe magit-status magit-mode-quit-window))
 
 (use-package evil-magit
   :ensure t
-  :after (magit evil)
-  :config
-  (evil-leader/set-key "gg" 'magit-status))
+  :after (magit)
+  :requires (evil))
 
 (provide 'config-magit)
