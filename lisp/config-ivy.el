@@ -8,8 +8,8 @@
   :bind ((:map ivy-minibuffer-map)
          ("RET" . ivy-alt-done)
          ("C-RET" . ivy-immediate-done)
-         ("C-k" . ivy-previous-line-or-history)
-         ("C-j" . ivy-next-line-or-history))
+         ("C-k" . ivy-previous-line)
+         ("C-j" . ivy-next-line))
   :config
   (setq-default ivy-use-virtual-buffers t
                 ivy-virtual-abbreviate 'fullpath
