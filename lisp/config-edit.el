@@ -1,5 +1,5 @@
 
-;; show parenthese
+;; highlight all level of parentheses
 (use-package highlight-parentheses
   :ensure t
   :init
@@ -9,6 +9,7 @@
   (hl-paren-background-colors '("#FF0000" "#00FF00" "#0000FF" "#FFFF00" "#00FFFF" "#FF00FF" "#800000" "#008000" "#000080" "#808000" "#008080" "#800080"))
   (hl-paren-colors 'nil))
 
+;; highlight matched parenthese cursor on
 (add-hook 'after-init-hook 'show-paren-mode)
 
 (use-package rainbow-delimiters
@@ -17,11 +18,10 @@
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
 ;; basic
-(setq-default
- case-fold-search t ;; search or match ignore case
- column-number-mode t ;; show column number
- indent-tabs-mode nil ;; replace tab with space
- default-tab-width 4) 
+(setq-default case-fold-search t ;; search or match ignore case
+              column-number-mode t ;; show column number
+              indent-tabs-mode nil ;; replace tab with space
+              default-tab-width 4) 
 
 (use-package subword
   :diminish subword-mode)
@@ -41,11 +41,9 @@
 
 (use-package undo-tree
   :ensure t
-  :diminish undo-tree-mode
   :init
   (add-hook 'after-init-hook 'global-undo-tree-mode))
 
-;; highlight escape sequence
 (use-package highlight-escape-sequences
   :ensure t
   :init
