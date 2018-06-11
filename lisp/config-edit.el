@@ -3,7 +3,7 @@
 (use-package highlight-parentheses
   :ensure t
   :init
-  (add-hook 'after-init-hook 'global-highlight-parentheses-mode)
+  (add-hook 'prog-mode-hook 'global-highlight-parentheses-mode)
   :custom
   (hl-paren-attributes 'nil)
   (hl-paren-background-colors '("#FF0000" "#00FF00" "#0000FF" "#FFFF00" "#00FFFF" "#FF00FF" "#800000" "#008000" "#000080" "#808000" "#008080" "#800080"))
