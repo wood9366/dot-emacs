@@ -51,3 +51,5 @@
 (require 'config-dired)
 
 (require 'config-magit)
+
+(require 'config-company)
