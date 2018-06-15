@@ -1,6 +1,8 @@
-
 (use-package nlinum
-  :ensure t)
+  :ensure t
+  :config
+  (set-face-background 'linum "black")
+  (setq nlinum-format "%d "))
 
 (use-package nlinum-relative
   :ensure t
@@ -8,9 +10,10 @@
   :init 
   (add-hook 'after-init-hook 'global-nlinum-relative-mode)
   :config
-  (custom-set-faces
-   '(nlinum-relative-current-face 
-     ((t :inherit linum :foreground "#FF9933" :weight bold))))
+  (set-face-attribute 'nlinum-relative-current-face nil
+                      :background "black"
+                      :foreground "#FF9933"
+                      :weight 'bold)
   (setq nlinum-relative-redisplay-delay 0))
 
 (provide 'config-linum)
