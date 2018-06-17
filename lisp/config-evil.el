@@ -40,4 +40,10 @@
   :config
   (setq evil-escape-key-sequence "kj"))
 
+(use-package evil-matchit
+  :ensure t
+  :requires (evil)
+  :init
+  (add-hook 'after-init-hook 'global-evil-matchit-mode)) 
+
 (provide 'config-evil)

@@ -54,3 +54,5 @@
 (require 'config-magit)
 
 (require 'config-company)
+
+(require 'config-lang-comment)
