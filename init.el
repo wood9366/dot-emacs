@@ -59,3 +59,4 @@
 (require 'config-flycheck)
 
 (require 'config-lisp)
+(require 'config-perl)
