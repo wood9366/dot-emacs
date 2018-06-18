@@ -14,3 +14,4 @@ custom.el
 /projectile.cache
 /projectile-bookmarks.eld
 /.mc-lists.el
+.DS_Store
