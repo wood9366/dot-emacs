@@ -60,3 +60,4 @@
 
 (require 'config-lisp)
 (require 'config-perl)
+(require 'config-cpp)
