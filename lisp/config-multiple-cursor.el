@@ -5,6 +5,9 @@
   :init
   (add-hook 'after-init-hook 'global-evil-mc-mode)
   :config
+  (evil-define-key 'normal evil-mc-key-map (kbd "C-t") nil)
+  (evil-define-key 'visual evil-mc-key-map (kbd "C-t") nil)
+
   (defun wood9366/toggle-mc ()
     (interactive)
     (if (evil-mc-has-cursors-p)
