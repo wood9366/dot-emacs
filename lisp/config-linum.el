@@ -1,7 +1,5 @@
 (use-package nlinum
   :ensure t
-  :custom-face
-  (linum ((t :background "black")))
   :config
   (setq nlinum-format "%d "))
 
