@@ -12,6 +12,7 @@
 
 ;; highlight matched parenthese cursor on
 (add-hook 'after-init-hook 'show-paren-mode)
+(set-face-background 'show-paren-match "dark magenta")
 
 (use-package rainbow-delimiters
   :ensure t
