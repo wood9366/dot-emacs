@@ -8,7 +8,7 @@
 (use-package nlinum-relative
   :ensure t
   :requires (nlinum)
-  :init 
+  :init
   (add-hook 'after-init-hook 'global-nlinum-relative-mode)
   :custom-face
   (nlinum-relative-current-face ((t :inhert "linum"
