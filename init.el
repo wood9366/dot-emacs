@@ -38,6 +38,9 @@
 (require 'config-status-bar)
 (require 'config-evil)
 
+(if (display-graphic-p)
+    (require 'config-font))
+
 (require 'config-ibuffer)
 (require 'config-edit)
 (require 'config-hippie-expand)
