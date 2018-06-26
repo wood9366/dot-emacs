@@ -35,6 +35,7 @@
 (require 'config-exec-path)
 (require 'config-osx)
 (require 'config-theme)
+(require 'config-status-bar)
 (require 'config-evil)
 
 (require 'config-ibuffer)

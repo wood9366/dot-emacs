@@ -1,11 +1,8 @@
-(use-package color-theme-solarized
+(use-package solarized-theme
   :ensure t
   :init
-  (load-theme 'solarized t)
-  :custom
-  (frame-background-mode 'dark)
-  :config
-  (enable-theme 'solarized))
+  (load-theme 'solarized-dark t)
+  (setq solarized-distinct-fringe-background t))
 
 (use-package dimmer
   :ensure t
