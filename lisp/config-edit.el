@@ -1,15 +1,3 @@
-
-;; highlight all level of parentheses
-(use-package highlight-parentheses
-  :ensure t
-  :diminish
-  :init
-  (add-hook 'prog-mode-hook 'global-highlight-parentheses-mode)
-  :custom
-  (hl-paren-attributes 'nil)
-  (hl-paren-background-colors '("#FF0000" "#00FF00" "#0000FF" "#FFFF00" "#00FFFF" "#FF00FF" "#800000" "#008000" "#000080" "#808000" "#008080" "#800080"))
-  (hl-paren-colors 'nil))
-
 ;; highlight matched parenthese cursor on
 (add-hook 'after-init-hook 'show-paren-mode)
 (set-face-background 'show-paren-match "dark magenta")
@@ -17,7 +5,16 @@
 (use-package rainbow-delimiters
   :ensure t
   :init
-  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
+  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+  :custom-face
+  (rainbow-delimiters-depth-1-face ((t (:foreground "dark orange"))))
+  (rainbow-delimiters-depth-2-face ((t (:foreground "deep pink"))))
+  (rainbow-delimiters-depth-3-face ((t (:foreground "chartreuse"))))
+  (rainbow-delimiters-depth-4-face ((t (:foreground "deep sky blue"))))
+  (rainbow-delimiters-depth-5-face ((t (:foreground "yellow"))))
+  (rainbow-delimiters-depth-6-face ((t (:foreground "orchid"))))
+  (rainbow-delimiters-depth-7-face ((t (:foreground "spring green"))))
+  (rainbow-delimiters-depth-8-face ((t (:foreground "sienna1")))))
 
 ;; basic
 (setq-default case-fold-search t ;; search or match ignore case

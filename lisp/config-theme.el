@@ -1,16 +1,10 @@
-(use-package solarized-theme
+(use-package color-theme-solarized
   :ensure t
   :init
-  (load-theme 'solarized-dark t)
+  (load-theme 'solarized t)
+  :custom
+  (frame-background-mode 'dark)
   :config
-  (if (display-graphic-p) (setq solarized-distinct-fringe-background t)))
-
-;; (use-package dimmer
-;;   :ensure t
-;;   :init
-;;   (add-hook 'after-init-hook 'dimmer-mode)
-;;   :custom
-;;   (dimmer-use-colorspace :rgb)
-;;   (dimmer-fraction 0.1))
+  (enable-theme 'solarized))
 
 (provide 'config-theme)
