@@ -13,6 +13,8 @@
 (setq-default initial-scratch-message
               (concat ";; Happy hacking, " user-login-name " - Emacs ♥ you!\n\n"))
 
+(fset 'yes-or-no-p 'y-or-n-p)
+
 ;; redirect auto save location
 (let* ((auto-save-dir (concat user-emacs-directory "autosaves/")))
   (unless (file-directory-p auto-save-dir) (make-directory auto-save-dir t))
