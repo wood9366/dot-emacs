@@ -4,8 +4,9 @@
   :bind (("M-C-/" . company-complete)
          :map company-mode-map
          ("M-/" . company-complete)
+         ("M-." . company-other-backend)
          :map company-active-map
-         ("M-/" . company-select-next)
+         ("M-/" . company-other-backend)
          ("C-j" . company-select-next)
          ("C-k" . company-select-previous)
          ("C-w" . nil)
@@ -14,9 +15,12 @@
   (add-hook 'after-init-hook 'global-company-mode)
   :config
   (setq company-idle-delay 0.1)
+
   (setq company-backends
-        '((company-files company-keywords company-capf company-yasnippet)
-          (company-dabbrev-code company-dabbrev))))
+        '(company-capf
+          company-files
+          (company-dabbrev-code company-gtags company-etags company-keywords)
+          company-dabbrev)))
 
 (use-package company-quickhelp
   :ensure t
