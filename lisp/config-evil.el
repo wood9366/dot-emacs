@@ -1,5 +1,7 @@
 (use-package evil
   :ensure t
+  :custom
+  (evil-want-abbrev-expand-on-insert-exit nil)
   :init
   (add-hook 'after-init-hook 'evil-mode))
 
