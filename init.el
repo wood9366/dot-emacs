@@ -66,3 +66,4 @@
 (require 'config-perl)
 (require 'config-cpp)
 (require 'config-csharp)
+(require 'config-lua)
