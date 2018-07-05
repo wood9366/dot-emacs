@@ -3,9 +3,9 @@
   :diminish "c"
   :bind (("M-C-/" . company-complete)
          :map company-mode-map
-         ("C-_" . company-complete)
+         ("M-/" . company-complete)
          :map company-active-map
-         ("C-_" . company-select-next)
+         ("M-/" . company-select-next)
          ("C-j" . company-select-next)
          ("C-k" . company-select-previous)
          ("C-w" . nil)
