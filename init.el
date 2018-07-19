@@ -59,6 +59,9 @@
 
 (require 'config-company)
 
+(require 'config-org)
+(require 'config-reveal)
+
 (require 'config-lang-comment)
 (require 'config-flycheck)
 
