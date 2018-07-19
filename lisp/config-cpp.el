@@ -1,6 +1,4 @@
-(when (featurep 'rtags)
-  (require 'rtags)
-
+(when (require 'rtags nil 'noerror)
   (defun rtags-config (keymap)
     ;; (rtags-start-process-unless-running)
     ;; (rtags-enable-standard-keybindings c-mode-base-map)
