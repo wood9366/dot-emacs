@@ -34,7 +34,7 @@
       (setq-local flycheck-highlighting-mode nil)
       (setq-local flycheck-check-syntax-automatically nil))
 
-    (use-package rtags-ivy
+    (use-package ivy-rtags
       :config
       (setq rtags-display-result-backend 'ivy))
 
