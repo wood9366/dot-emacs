@@ -65,8 +65,12 @@
 (require 'config-lang-comment)
 (require 'config-flycheck)
 
+(require 'config-markdown)
+
 (require 'config-lisp)
 (require 'config-perl)
 (require 'config-cpp)
 (require 'config-csharp)
 (require 'config-lua)
+(require 'config-shader)
+(require 'config-web)
