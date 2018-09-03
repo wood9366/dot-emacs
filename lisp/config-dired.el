@@ -9,6 +9,7 @@
 
   (setq dired-recursive-deletes 'top)
   (define-key dired-mode-map (kbd "C-c C-p") 'wdired-change-to-wdired-mode)
+  (define-key dired-mode-map (kbd "C-c C-c") 'revert-buffer)
 
   (defun wood9366/dired-find-alternate-file ()
     "find dired dired alternate, and find files in normal way"
