@@ -70,6 +70,7 @@
 (require 'config-flycheck)
 
 (require 'config-markdown)
+(require 'config-plantuml)
 
 (require 'config-lisp)
 (require 'config-perl)
