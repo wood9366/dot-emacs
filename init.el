@@ -69,6 +69,7 @@
 (require 'config-lang-comment)
 (require 'config-flycheck)
 
+(require 'config-proto)
 (require 'config-markdown)
 (require 'config-plantuml)
 
