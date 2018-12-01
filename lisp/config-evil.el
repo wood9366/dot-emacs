@@ -1,9 +1,3 @@
-;; (use-package evil
-;;   :ensure t
-;;   :custom
-;;   :init
-;;   (add-hook 'after-init-hook 'evil-mode))
-
 (use-package evil
   :ensure t
   :init
@@ -35,31 +29,31 @@
 
 (use-package evil-leader
   :ensure t
-  :requires (evil)
-  :init
-  (add-hook 'after-init-hook 'global-evil-leader-mode)
+  :after (evil)
   :config
+  (global-evil-leader-mode 1)
   (evil-leader/set-leader ","))
 
 (use-package evil-surround
   :ensure t
-  :requires (evil)
-  :init
-  (add-hook 'after-init-hook 'global-evil-surround-mode))
+  :after (evil)
+  :config
+  (global-evil-surround-mode 1))
 
 (use-package evil-escape
   :ensure t
   :diminish
-  :requires (evil)
-  :init
-  (add-hook 'after-init-hook 'evil-escape-mode)
+  :after (evil)
   :config
-  (setq evil-escape-key-sequence "kj"))
+  (setq evil-escape-key-sequence "kj")
+  (evil-escape-mode 1))
 
-(use-package evil-matchit
-  :ensure t
-  :requires (evil)
-  :init
-  (add-hook 'after-init-hook 'global-evil-matchit-mode)) 
+;; (use-package evil-matchit
+;;   :ensure t
+;;   :after (evil)
+;;   ;; :init
+;;   ;; (add-hook 'after-init-hook 'global-evil-matchit-mode)) 
+;;   :config
+;;   (global-evil-matchit-mode 1))
 
 (provide 'config-evil)
