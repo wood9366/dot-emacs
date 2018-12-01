@@ -2,7 +2,7 @@ elpa/
 auto-save-list/
 autosaves/
 backups/
-
+/.cache
 custom.el
 /.historian
 /recentf
@@ -15,3 +15,4 @@ custom.el
 /projectile-bookmarks.eld
 /.mc-lists.el
 .DS_Store
+/tramp
