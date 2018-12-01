@@ -1,9 +1,23 @@
+;; (use-package evil
+;;   :ensure t
+;;   :custom
+;;   :init
+;;   (add-hook 'after-init-hook 'evil-mode))
+
 (use-package evil
   :ensure t
-  :custom
-  (evil-want-abbrev-expand-on-insert-exit nil)
   :init
-  (add-hook 'after-init-hook 'evil-mode))
+  (setq evil-want-abbrev-expand-on-insert-exit nil)
+  (setq evil-want-integration t)
+  (setq evil-want-keybinding nil)
+  :config
+  (evil-mode 1))
+
+(use-package evil-collection
+  :after evil
+  :ensure t
+  :config
+  (evil-collection-init))
 
 (unless (display-graphic-p)
   (use-package evil-terminal-cursor-changer
