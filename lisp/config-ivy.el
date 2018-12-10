@@ -7,9 +7,7 @@
   (add-hook 'after-init-hook 'ivy-mode)
   :bind ((:map ivy-minibuffer-map)
          ("RET" . ivy-alt-done)
-         ("C-RET" . ivy-immediate-done)
-         ("C-k" . ivy-previous-line)
-         ("C-j" . ivy-next-line))
+         ("C-<return>" . ivy-immediate-done))
   :config
   (setq-default ivy-use-virtual-buffers t
                 ivy-virtual-abbreviate 'fullpath
