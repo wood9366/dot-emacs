@@ -1,6 +1,6 @@
 ;; -*- lexical-binding: t -*-
 
-(setq debug-on-error t)
+(setq debug-on-error nil)
 
 (when (< emacs-major-version 24)
   (error "Your emacs is too old -- this config requires v24 of higher"))
@@ -72,6 +72,7 @@
 (require 'config-proto)
 (require 'config-markdown)
 (require 'config-plantuml)
+(require 'config-cmake)
 
 (require 'config-lisp)
 (require 'config-perl)
