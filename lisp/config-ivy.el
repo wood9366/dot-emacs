@@ -35,6 +35,7 @@
   :ensure t
   :after (ivy)
   :config
+  (setq ivy-xref-use-file-path t) 
   (setq xref-show-xrefs-function 'ivy-xref-show-xrefs))
 
 
