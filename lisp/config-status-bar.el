@@ -132,8 +132,10 @@
                             (item-scroll-indicator
                              (list
                               (funcall separator-right face1 face0 separator-height)
-                              (powerline-raw (format " %2d"
-                                                     (* 100 (/ (float (point)) (point-max))))
+                              (powerline-raw (let ((cur (point))
+                                                   (max (point-max)))
+                                               (if (= cur max) " __"
+                                                 (format " %2d" (* 100 (/ (float (point)) (point-max))))))
                                              face0 'r)
                               (powerline-hud face0 face2)))
                             (lhs (append item-window-id
