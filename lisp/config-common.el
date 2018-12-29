@@ -2,8 +2,10 @@
 (menu-bar-mode -1)
 ;; hide tool bar
 (tool-bar-mode -1)
+
 ;; hide scroll bar
-(scroll-bar-mode -1)
+(if (functionp 'scroll-bar-mode)
+    (scroll-bar-mode -1))
 
 (setq use-dialog-box nil)
 
