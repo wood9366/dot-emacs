@@ -1,6 +1,7 @@
 (use-package magit
   :ensure t
-  :bind ("C-x g" . magit-status)
+  :init
+  (evil-leader/set-key "x g" 'magit-status)
   :config
   (fullframe magit-status magit-mode-quit-window))
 
