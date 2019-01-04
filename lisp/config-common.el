@@ -40,4 +40,37 @@
 
 (add-hook 'after-init-hook (lambda () (diminish 'auto-revert-mode)))
 
+;; colored title bar
+(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+(add-to-list 'default-frame-alist '(ns-appearance . dark))
+
+;; view big file
+(defun wood9366/open-big-file-hook()
+  (when (> (buffer-size) (* 1024 1024))
+    (message (concat "open big file" (buffer-name)))
+    (setq buffer-read-only t)
+    (buffer-disable-undo)
+    (fundamental-mode)))
+
+(use-package vlf
+  :ensure t
+  :init
+  (defun ffap-vlf ()
+    "Find file at point with VLF."
+    (interactive)
+    (let ((file (ffap-file-at-point)))
+      (unless (file-exists-p file)
+        (error "File does not exist: %s" file))
+      (vlf file))))
+
+;; display key guide
+(use-package which-key
+  :ensure t
+  :init
+  (evil-leader/set-key "t w" 'which-key-mode)
+  (which-key-mode)
+  :config
+  (setq which-key-idle-delay 0.5)
+  (setq which-key-popup-type 'minibuffer))
+
 (provide 'config-common)

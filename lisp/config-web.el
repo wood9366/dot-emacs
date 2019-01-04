@@ -12,6 +12,9 @@
 (use-package json-mode
   :ensure t)
 
+(use-package php-mode
+  :ensure t)
+
 (defun wood9366/web-mode-config ()
   "Hooks for Web mode. Adjust indents"
   (setq web-mode-markup-indent-offset 2)
