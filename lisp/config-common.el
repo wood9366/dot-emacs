@@ -69,6 +69,8 @@
   :init
   (evil-leader/set-key "t w" 'which-key-mode)
   (which-key-mode)
+  :custom
+  (which-key-enable-extended-define-key t)
   :config
   (setq which-key-idle-delay 0.5)
   (setq which-key-popup-type 'minibuffer))

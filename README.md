@@ -9,3 +9,5 @@
 - f, file
 - p, project
 - x, tool
+- b, buffer
+- w, window

@@ -36,6 +36,7 @@
 (use-package fullframe :ensure t)
 
 (require 'config-evil)
+(require 'config-key-bind)
 (require 'config-common)
 (require 'config-exec-path)
 (require 'config-osx)
