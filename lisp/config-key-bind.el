@@ -7,6 +7,8 @@
 
 (add-hook 'after-init-hook
           (lambda ()
+            (evil-leader/set-key "," 'execute-extended-command)
+
             (evil-leader/set-key liyang/quit-prefix '("quit"))
             (evil-leader/set-key (concat liyang/quit-prefix "q") '("exit" . save-buffers-kill-terminal))
 
