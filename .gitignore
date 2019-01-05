@@ -16,3 +16,4 @@ custom.el
 /.mc-lists.el
 .DS_Store
 /tramp
+/bookmarks
