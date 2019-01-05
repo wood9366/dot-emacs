@@ -2,10 +2,6 @@
   :ensure t
   :requires (evil)
   :config
-  (global-set-key (kbd "M-;") 'evilnc-comment-or-uncomment-lines)
-  
-  (use-package evil-leader
-    :config
-    (evil-leader/set-key ","  'evilnc-comment-operator)))
+  (evil-leader/set-key "/" 'evilnc-comment-or-uncomment-lines))
 
 (provide 'config-lang-comment)
