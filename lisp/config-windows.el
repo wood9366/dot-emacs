@@ -1,14 +1,17 @@
 ;; -*- lexical-binding: t -*-
 
-(use-package window-numbering
+(use-package winum
   :ensure t
   :init
-  (add-hook 'after-init-hook 'window-numbering-mode)
+  (winum-mode)
+  :custom
+  (winum-auto-setup-mode-line nil)
   :config
-  (use-package evil
-    :config
-    (dolist (no (number-sequence 0 9))
-      (evil-leader/set-key (number-to-string no)
-        (lambda () (interactive) (select-window-by-number no nil))))))
+  (evil-leader/set-key "`" 'winum-select-window-by-number)
+  (dolist (no (number-sequence 0 9))
+    (evil-leader/set-key (number-to-string no)
+      (lambda () (interactive) (winum-select-window-by-number no)))
+    (which-key-add-key-based-replacements
+      (format "%s%d" liyang/leader-key no) (format "select window %d" no))))
 
 (provide 'config-windows)
