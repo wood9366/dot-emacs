@@ -27,12 +27,14 @@
           evil-emacs-state-cursor  'hbar) ; _
     ))
 
+(defconst liyang/leader-key ",")
+
 (use-package evil-leader
   :ensure t
   :after (evil)
   :config
   (global-evil-leader-mode 1)
-  (evil-leader/set-leader ","))
+  (evil-leader/set-leader liyang/leader-key))
 
 (use-package evil-surround
   :ensure t
