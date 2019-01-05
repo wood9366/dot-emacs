@@ -35,12 +35,12 @@
 (use-package diminish :ensure t)
 (use-package fullframe :ensure t)
 
+(require 'config-evil)
 (require 'config-common)
 (require 'config-exec-path)
 (require 'config-osx)
 (require 'config-theme)
 (require 'config-status-bar)
-(require 'config-evil)
 
 (if (display-graphic-p)
     (require 'config-font))
