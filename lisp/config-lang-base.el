@@ -4,4 +4,4 @@
   :config
   (evil-leader/set-key "/" 'evilnc-comment-or-uncomment-lines))
 
-(provide 'config-lang-comment)
+(provide 'config-lang-base)
