@@ -21,6 +21,7 @@
     '("find file" . counsel-find-file))
 
   (evil-leader/set-key liyang/window-prefix '("window"))
+  (evil-leader/set-key (concat liyang/window-prefix "w") 'other-window)
   (evil-leader/set-key (concat liyang/window-prefix "s")
     '("split horizontal" . evil-window-split))
   (evil-leader/set-key (concat liyang/window-prefix "v")
