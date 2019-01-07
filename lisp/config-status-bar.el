@@ -71,7 +71,20 @@
                                                              (cdr powerline-default-separator-dir))))
                             (item-window-id
                              (list
-                              (powerline-raw (format " %d " (winum-get-number)) face-window-id)
+                              (powerline-raw (let ((n (winum-get-number)))
+                                               (format " %s "
+                                                       (cond
+                                                        ((= n 1) (char-to-string #x278A))
+                                                        ((= n 2) (char-to-string #x278B))
+                                                        ((= n 3) (char-to-string #x278C))
+                                                        ((= n 4) (char-to-string #x278D))
+                                                        ((= n 5) (char-to-string #x278E))
+                                                        ((= n 6) (char-to-string #x278F))
+                                                        ((= n 7) (char-to-string #x2790))
+                                                        ((= n 8) (char-to-string #x2791))
+                                                        ((= n 9) (char-to-string #x2792))
+                                                        (t (number-to-string n)))))
+                                             face-window-id)
                               (funcall separator-left face-window-id face-evil-state separator-height)))
                             (item-evil-state-tag
                              (list
