@@ -54,4 +54,13 @@
 ; highlight current line
 (global-hl-line-mode)
 
+; 80 column
+(use-package fill-column-indicator
+  :ensure t
+  :custom
+  (fci-rule-color "#3F3F3F")
+  (fci-rule-column 80)
+  :init
+  (add-hook 'after-change-major-mode-hook 'fci-mode))
+
 (provide 'config-edit)
