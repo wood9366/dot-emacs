@@ -51,4 +51,7 @@
   :init
   (add-hook 'after-init-hook 'hes-mode))
 
+; highlight current line
+(global-hl-line-mode)
+
 (provide 'config-edit)
