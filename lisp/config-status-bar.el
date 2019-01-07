@@ -98,6 +98,13 @@
                               (powerline-raw " " face1)
                               (funcall separator-left face1 face0 separator-height)
                               ))
+                            (item-flycheck
+                             (when flycheck-mode
+                               (list
+                                (powerline-raw " " face1)
+                                (powerline-raw (flycheck-mode-line-status-text) face1)
+                                (powerline-raw " " face1)
+                                )))
                             (item-minor-modes
                              (list
                               (funcall separator-right face1 face0 separator-height)
@@ -120,7 +127,8 @@
                                          item-evil-state-tag
                                          item-file-props
                                          item-buffer))
-                            (rhs (append item-minor-modes
+                            (rhs (append item-flycheck
+                                         item-minor-modes
                                          item-position
                                          item-scroll-indicator)))
                        (concat
