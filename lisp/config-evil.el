@@ -5,7 +5,7 @@
   (setq evil-want-integration t)
   (setq evil-want-keybinding nil)
   :config
-  (evil-mode 1))
+  (add-hook 'after-init-hook 'evil-mode))
 
 (use-package evil-collection
   :after evil
