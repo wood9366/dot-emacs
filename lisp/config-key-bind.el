@@ -14,7 +14,7 @@
 
   (evil-leader/set-key liyang/toggle-prefix '("toggle"))
   (evil-leader/set-key (concat liyang/toggle-prefix "f")
-    '("flycheck" . 'global-flycheck-mode))
+    '("flycheck" . global-flycheck-mode))
 
   (evil-leader/set-key liyang/file-prefix '("file"))
   (evil-leader/set-key (concat liyang/file-prefix "f")
