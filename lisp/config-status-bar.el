@@ -13,7 +13,7 @@
     '((t (:bold t :foreground "#AFAFAF" :inherit mode-line))) "")
 
   (defface liyang/evil-state-normal-face
-    '((t (:bold t :foreground "black" :background "#01FF01"))) "")
+    '((t (:bold t :foreground "black" :background "#3FFF3F"))) "")
 
   (defface liyang/evil-state-insert-face
     '((t (:bold t :foreground "black" :background "cyan"))) "")
@@ -25,13 +25,13 @@
     '((t (:bold t :foreground "black" :background "white"))) "")
 
   (defface liyang/evil-state-replace-face
-    '((t (:bold t :foreground "black" :background "#FF0101"))) "")
+    '((t (:bold t :foreground "black" :background "#FF3F3F"))) "")
 
   (defface liyang/evil-state-motion-face
     '((t (:bold t :foreground "black" :background "yellow"))) "")
 
   (defface liyang/evil-state-emacs-face
-    '((t (:bold t :foreground "black" :background "#0101FF"))) "")
+    '((t (:bold t :foreground "black" :background "#3F3FFF"))) "")
 
   (defconst liyang/powerline-separator-scale 1.1)
 
