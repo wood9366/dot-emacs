@@ -88,6 +88,7 @@
                             (item-buffer
                              (list
                               (powerline-buffer-id `(mode-line-buffer-id ,face0))
+                              (powerline-raw " " face0)
                               (funcall separator-left face0 face1 separator-height)
                               ))
                             (item-major-mode
