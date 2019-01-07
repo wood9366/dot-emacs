@@ -2,6 +2,7 @@
 
 (use-package projectile
   :ensure t
+  :diminish
   :after (counsel ivy)
   :init
   (add-hook 'after-init-hook 'projectile-global-mode)

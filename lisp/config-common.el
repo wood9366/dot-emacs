@@ -66,6 +66,7 @@
 ;; display key guide
 (use-package which-key
   :ensure t
+  :diminish
   :init
   (evil-leader/set-key "t w" 'which-key-mode)
   (which-key-mode)

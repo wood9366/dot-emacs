@@ -1,125 +1,133 @@
+;; -*- lexical-binding: t -*-
+
 (use-package powerline
   :ensure t
   :config
-  (defface liyang/powerline-evil-base-face
-    '((t (:weight bold :background "black" :inherit mode-line)))
-    "Base face for powerline evil faces."
-    :group 'powerline)
+  (setq powerline-image-apple-rgb t)
+  (setq powerline-default-separator 'arrow)
 
-  (defface liyang/powerline-evil-normal-face
-    '((t (:foreground "green" :inherit liyang/powerline-evil-base-face)))
-    "Powerline face for evil NORMAL state."
-    :group 'powerline)
+  (defface liyang/window-id-face-active
+    '((t (:bold t :foreground "black" :background "#FFCC00" :inherit mode-line))) "")
 
-  (defface liyang/powerline-evil-insert-face
-    '((t (:foreground "blue" :inherit liyang/powerline-evil-base-face)))
-    "Powerline face for evil INSERT state."
-    :group 'powerline)
+  (defface liyang/window-id-face-inactive
+    '((t (:bold t :foreground "#AFAFAF" :inherit mode-line))) "")
 
-  (defface liyang/powerline-evil-visual-face
-    '((t (:foreground "orange" :inherit liyang/powerline-evil-base-face)))
-    "Powerline face for evil VISUAL state."
-    :group 'powerline)
+  (defface liyang/evil-state-normal-face
+    '((t (:bold t :foreground "black" :background "#01FF01"))) "")
 
-  (defface liyang/powerline-evil-operator-face
-    '((t (:foreground "cyan" :inherit liyang/powerline-evil-base-face)))
-    "Powerline face for evil OPERATOR state."
-    :group 'powerline)
+  (defface liyang/evil-state-insert-face
+    '((t (:bold t :foreground "black" :background "cyan"))) "")
 
-  (defface liyang/powerline-evil-replace-face
-    '((t (:foreground "red" :inherit liyang/powerline-evil-base-face)))
-    "Powerline face for evil REPLACE state."
-    :group 'powerline)
+  (defface liyang/evil-state-visual-face
+    '((t (:bold t :foreground "black" :background "magenta"))) "")
 
-  (defface liyang/powerline-evil-motion-face
-    '((t (:foreground "magenta" :inherit liyang/powerline-evil-base-face)))
-    "Powerline face for evil MOTION state."
-    :group 'powerline)
+  (defface liyang/evil-state-operator-face
+    '((t (:bold t :foreground "black" :background "white"))) "")
 
-  (defface liyang/powerline-evil-emacs-face
-    '((t (:foreground "violet" :inherit liyang/powerline-evil-base-face)))
-    "Powerline face for evil EMACS state."
-    :group 'powerline)
+  (defface liyang/evil-state-replace-face
+    '((t (:bold t :foreground "black" :background "#FF0101"))) "")
 
-  (defun liyang/powerline-evil-face ()
-    "Function to select appropriate face based on `evil-state'."
-    (let* ((face (intern (concat "liyang/powerline-evil-" (symbol-name evil-state) "-face"))))
-      (if (facep face) face nil)))
+  (defface liyang/evil-state-motion-face
+    '((t (:bold t :foreground "black" :background "yellow"))) "")
 
-  (defun liyang/powerline-evil-tag ()
-    "Get customized tag value for current evil state."
-    (upcase (concat (symbol-name evil-state)
-                    (when (evil-visual-state-p)
-                      (cond ((eq evil-visual-selection 'block) " BLOCK")
-                            ((eq evil-visual-selection 'line) " LINE"))))))
+  (defface liyang/evil-state-emacs-face
+    '((t (:bold t :foreground "black" :background "#0101FF"))) "")
 
-  (setq powerline-default-separator 'utf-8)
-  (setq-default mode-line-format
-                '("%e"
-                  (:eval
-                   (let* ((active (powerline-selected-window-active))
-                          (mode-line-buffer-id (if active 'mode-line-buffer-id 'mode-line-buffer-id-inactive))
-                          (mode-line (if active 'mode-line 'mode-line-inactive))
-                          (evil-face (liyang/powerline-evil-face))
-                          (face1 (if active 'powerline-active1 'powerline-inactive1))
-                          (face2 (if active 'powerline-active2 'powerline-inactive2))
-                          (separator-left (intern (format "powerline-%s-%s"
-                                                          (powerline-current-separator)
-                                                          (car powerline-default-separator-dir))))
-                          (separator-right (intern (format "powerline-%s-%s"
-                                                           (powerline-current-separator)
-                                                           (cdr powerline-default-separator-dir))))
-                          (lhs (list (if evil-mode (powerline-raw (format " %s " (liyang/powerline-evil-tag)) evil-face))
-                                     (if evil-mode (funcall separator-left evil-face mode-line))
-                                     (powerline-raw "%*" mode-line 'l)
-                                     (when powerline-display-buffer-size
-                                       (powerline-buffer-size mode-line 'l))
-                                     (when powerline-display-mule-info
-                                       (powerline-raw mode-line-mule-info mode-line 'l))
-                                     (powerline-buffer-id mode-line-buffer-id 'l)
-                                     (when (and (boundp 'which-func-mode) which-func-mode)
-                                       (powerline-raw which-func-format nil 'l))
-                                     (powerline-raw " ")
-                                     (funcall separator-left mode-line face1)
-                                     (powerline-raw " " face1)
-                                     (when (and (boundp 'erc-track-minor-mode) erc-track-minor-mode)
-                                       (powerline-raw erc-modified-channels-object face1 'l))
-                                     (powerline-raw "[" face1)
-                                     (powerline-major-mode face1)
-                                     (powerline-raw "]" face1)
-                                     (powerline-process face1)
-                                     (powerline-raw "[" face1)
-                                     (powerline-minor-modes face1)
-                                     (powerline-raw "]" face1)
-                                     (powerline-narrow face1 'l)
-                                     (powerline-raw " " face1)
-                                     (funcall separator-left face1 face2)
-                                     (powerline-vc face2 'r)
-                                     (when (bound-and-true-p nyan-mode)
-                                       (powerline-raw (list (nyan-create)) face2 'l))))
-                          (rhs (list (powerline-raw global-mode-string face2 'r)
-                                     (funcall separator-right face2 face1)
-                                     (unless window-system
-                                       (powerline-raw (char-to-string #xe0a1) face1 'l))
-                                     (powerline-raw (window-numbering-get-number-string) face1 'l)
-                                     (powerline-raw "%4l" face1 'l)
-                                     (powerline-raw ":" face1 'l)
-                                     (powerline-raw "%3c" face1 'r)
-                                     (funcall separator-right face1 mode-line)
-                                     (when powerline-display-hud
-                                       (powerline-hud face2 face1)))))
-                     (concat (powerline-render lhs)
-                             (powerline-fill face2 (powerline-width rhs))
-                             (powerline-render rhs))))))
-  )
+  (defconst liyang/powerline-separator-scale 1.1)
 
-(diminish 'global-auto-revert-mode "r")
-(diminish 'auto-revert-mode "r")
-(diminish 'undo-tree-mode "u")
-(diminish 'which-key-mode "")
-(diminish 'yas-minor-mode "y")
-(diminish 'global-yasnippet-mode "y")
-(diminish 'evil-escape-mode "")
-(diminish 'projectile-mode "p")
+  (defun liyang/powerline-theme ()
+    (interactive)
+    (setq-default mode-line-format
+                  '("%e"
+                    (:eval
+                     (let* ((active (powerline-selected-window-active))
+                            (evil-state-tag (cond
+                                             ((eq evil-state 'normal) "N")
+                                             ((eq evil-state 'insert) "I")
+                                             ((eq evil-state 'visual)
+                                              (cond
+                                               ((eq evil-visual-selection 'block) "B")
+                                               ((eq evil-visual-selection 'line) "L")
+                                               (t "V")))
+                                             ((eq evil-state 'operator) "O")
+                                             ((eq evil-state 'motion) "M")
+                                             ((eq evil-state 'replace) "R")
+                                             ((eq evil-state 'emacs) "E")))
+                            (face-evil-state (intern
+                                              (format "liyang/evil-state-%s-face"
+                                                      (symbol-name evil-state))))
+                            (mode-line-buffer-id (if active 'mode-line-buffer-id 'mode-line-buffer-id-inactive))
+                            (mode-line (if active 'mode-line 'mode-line-inactive))
+                            (face0 (if active 'powerline-active0 'powerline-inactive0))
+                            (face1 (if active 'powerline-active1 'powerline-inactive1))
+                            (face2 (if active 'powerline-active2 'powerline-inactive2))
+                            (face-window-id (if active 'liyang/window-id-face-active 'liyang/window-id-face-inactive))
+                            (separator-height (round (* liyang/powerline-separator-scale (frame-char-height))))
+                            (separator-left (intern (format "powerline-%s-%s"
+                                                            (powerline-current-separator)
+                                                            (car powerline-default-separator-dir))))
+                            (separator-right (intern (format "powerline-%s-%s"
+                                                             (powerline-current-separator)
+                                                             (cdr powerline-default-separator-dir))))
+                            (item-window-id
+                             (list
+                              (powerline-raw (format " %d " (winum-get-number)) face-window-id)
+                              (funcall separator-left face-window-id face-evil-state separator-height)))
+                            (item-evil-state-tag
+                             (list
+                              (powerline-raw (format " %s " evil-state-tag) face-evil-state)
+                              (funcall separator-left face-evil-state face1 separator-height)
+                              ))
+                            (item-file-props
+                             (list
+                              (powerline-raw " %* " face1)
+                              (powerline-buffer-size face1)
+                              (powerline-raw " " face1)
+                              (funcall separator-left face1 face0 separator-height)
+                              ))
+                            (item-buffer
+                             (list
+                              (powerline-buffer-id `(mode-line-buffer-id ,face0))
+                              (funcall separator-left face0 face1 separator-height)
+                              ))
+                            (item-major-mode
+                             (list
+                              (powerline-raw " " face1)
+                              (powerline-major-mode face1)
+                              (powerline-raw " " face1)
+                              (funcall separator-left face1 face0 separator-height)
+                              ))
+                            (item-minor-modes
+                             (list
+                              (funcall separator-right face1 face0 separator-height)
+                              (powerline-raw " " face0)
+                              (powerline-minor-modes face0)
+                              (powerline-raw " " face0)
+                              ))
+                            (item-position
+                             (list
+                              (funcall separator-right face0 face1 separator-height)
+                              (powerline-raw " %3l %2C " face1)))
+                            (item-scroll-indicator
+                             (list
+                              (funcall separator-right face1 face0 separator-height)
+                              (powerline-raw (format " %2d"
+                                                     (* 100 (/ (float (point)) (point-max))))
+                                             face0 'r)
+                              (powerline-hud face0 face2)))
+                            (lhs (append item-window-id
+                                         item-evil-state-tag
+                                         item-file-props
+                                         item-buffer))
+                            (rhs (append item-minor-modes
+                                         item-position
+                                         item-scroll-indicator)))
+                       (concat
+                        (powerline-render lhs)
+                        (powerline-fill face1 (powerline-width rhs))
+                        (powerline-render rhs)))))))
+  (liyang/powerline-theme))
+
+(diminish 'eldoc-mode)
 
 (provide 'config-status-bar)
