@@ -1,6 +1,6 @@
 (use-package company
   :ensure t
-  :diminish "c"
+  :diminish "ⓒ "
   :bind (("M-C-/" . company-complete)
          :map company-mode-map
          ("M-/" . company-complete)

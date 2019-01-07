@@ -1,5 +1,6 @@
 (use-package flycheck
   :ensure t
+  :diminish "ⓕ "
   :config
   (setq flycheck-display-errors-function #'flycheck-display-error-messages-unless-error-list))
 
