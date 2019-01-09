@@ -11,6 +11,13 @@
   (add-to-list 'load-path default-directory)
   (normal-top-level-add-subdirs-to-load-path))
 
+(add-hook 'after-init-hook
+          (lambda ()
+            (let ((local-config (concat (expand-file-name "~/") ".emacs-local-config.el")))
+              (when (file-exists-p local-config)
+                (message "load local config %s" local-config)
+                (load-file local-config)))))
+
 (require 'config-benchmarking) ;; Measure startup time
       
 ;; Adjust garbage collection thresholds during startup, and thereafter
