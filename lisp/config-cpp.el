@@ -81,7 +81,7 @@
          )
         tables)))
 
-  (defadvice visit-tags-table-buffer (before liyang/select-tags-table activate)
+  (defadvice xref-find-definitions (before liyang/select-tags-table activate)
     "choose tag table before use"
     (setq tags-table-list (liyang/select-tags-table)))
 
