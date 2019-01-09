@@ -53,20 +53,46 @@
   )
 
 (defun cpp-ctags-config()
+  (defcustom liyang/tags-table-alist nil
+    "tags table list"
+    :group 'tags
+    :type 'alist)
+
+  (defun liyang/generate-tag (tag)
+    (message "generate tag %s" tag)
+    (shell-command (format "ctags -f %s -e -R %s" tag (file-name-directory tag))))
+
+  (defun liyang/select-tags-table ()
+    (let ((file-name (buffer-file-name))
+          (tables))
+      (when file-name
+        (cond
+         (liyang/tags-table-alist
+          (mapc (lambda (x)
+                  (let ((regex (car x))
+                        (tags (cdr x)))
+                    (when (string-match regex file-name)
+                      (mapc (lambda (tag) (add-to-list 'tables tag)) tags))))
+                liyang/tags-table-alist))
+         ((projectile-project-root)
+          (setq tag (concat (projectile-project-root) "TAGS"))
+          (add-to-list 'tables tag))
+         (t (message "no tag table"))
+         )
+        tables)))
+
+  (defadvice visit-tags-table-buffer (before liyang/select-tags-table activate)
+    "choose tag table before use"
+    (setq tags-table-list (liyang/select-tags-table)))
+
   (defun liyang/update-tags ()
     "update etags under projecitle project"
     (interactive)
-    (let ((dir (projectile-project-root))
-          tag)
-      (if (not dir)
-          (message "not projectile project")
-        (setq tag (concat dir "TAGS"))
-        (message "generate tag %s" tag)
-        (shell-command (format "ctags -f %s -e -R %s" tag dir))
-        )
-      ))
-
-  (cpp-base-config)
+    (let ((tags (liyang/select-tags-table)))
+      (setq tags-table-list tags)
+      (dolist (tag tags) (liyang/generate-tag tag))))
+  
+  (add-hook 'c++-mode-hook (lambda () (cpp-base-config)))
   (evil-define-key 'normal c++-mode-map (kbd "g d") 'xref-find-definitions)
   (evil-define-key 'normal c++-mode-map (kbd "g D") 'xref-find-definitions-other-window)
   (evil-define-key 'normal c++-mode-map (kbd "g u") 'xref-find-references)
@@ -76,11 +102,8 @@
 ;; feature could be rtags, base
 (defconst cpp-feature 'base)
 
-(let ((cpp-config-fn
-       (cond
-        ((eq cpp-feature 'rtags) 'cpp-rtags-config)
-        (t 'cpp-ctags-config))))
-  (add-hook 'c++-mode-hook cpp-config-fn)
-  (add-hook 'objc-mode-hook cpp-config-fn))
+(cond
+ ((eq cpp-feature 'rtags) (cpp-rtags-config))
+ (t (cpp-ctags-config)))
 
 (provide 'config-cpp)
