@@ -1,4 +1,3 @@
-                                        ; feature could be rtags, base
 (defun cpp-base-config()
   (c-set-style "k&r")
   (setq c-basic-offset 4)
@@ -74,6 +73,7 @@
   (evil-leader/set-key "gg" 'liyang/update-tags)
   )
 
+;; feature could be rtags, base
 (defconst cpp-feature 'base)
 
 (let ((cpp-config-fn
