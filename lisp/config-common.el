@@ -5,6 +5,8 @@
 ;; hide scroll bar
 (scroll-bar-mode -1)
 
+(setq use-dialog-box nil)
+
 ;; hide startup message
 (setq inhibit-startup-message t)
 (setq inhibit-startup-echo-area-message t)
