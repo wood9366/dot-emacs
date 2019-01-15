@@ -4,7 +4,7 @@
   :ensure t
   :config
   (setq powerline-image-apple-rgb t)
-  (setq powerline-default-separator 'arrow)
+  (setq powerline-default-separator 'utf-8)
 
   (defface liyang/window-id-face-active
     '((t (:bold t :foreground "black" :background "#FFCC00" :inherit mode-line))) "")
