@@ -43,7 +43,7 @@
              liyang/font-size
              liyang/font-cn
              (if sizes (nth 0 sizes) liyang/font-size)
-             liyang/font-en
+             liyang/font-sym
              (if sizes (nth 1 sizes) liyang/font-size))))
 
 (defun liyang/refresh-font()
@@ -69,7 +69,7 @@
 (liyang/set-font "SauceCodePro Nerd Font Mono"
                  "SauceCodePro Nerd Font Mono"
                  "SauceCodePro Nerd Font Mono"
-                 14)
+                 15)
 
 ;; |abcd|efgh|ijkl|mnop|qrst|uvwx|yz|
 ;; |ABCD|EFGH|IJKL|MNOP|QRST|UVWX|YZ|
