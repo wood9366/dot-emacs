@@ -22,13 +22,13 @@
               indent-tabs-mode nil ;; replace tab with space
               tab-width 4) 
 
-(use-package subword
-  :diminish subword-mode
-  :init
-  (add-hook 'c-mode-common-hook 'subword-mode))
+;; (use-package subword
+;;   :diminish subword-mode
+;;   :init
+;;   (add-hook 'c-mode-common-hook 'subword-mode))
 
-(when (fboundp 'global-prettify-symbols-mode)
-  (add-hook 'after-init-hook 'global-prettify-symbols-mode))
+;; (when (fboundp 'global-prettify-symbols-mode)
+;;   (add-hook 'after-init-hook 'global-prettify-symbols-mode))
 
 (global-set-key "\C-w" 'backward-kill-word)
 
@@ -46,10 +46,10 @@
   :init
   (add-hook 'after-init-hook 'global-undo-tree-mode))
 
-(use-package highlight-escape-sequences
-  :ensure t
-  :init
-  (add-hook 'after-init-hook 'hes-mode))
+;; (use-package highlight-escape-sequences
+;;   :ensure t
+;;   :init
+;;   (add-hook 'after-init-hook 'hes-mode))
 
 ; highlight current line
 (global-hl-line-mode)
