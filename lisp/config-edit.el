@@ -55,12 +55,9 @@
 (global-hl-line-mode)
 
 ; 80 column
-(use-package fill-column-indicator
+(use-package column-enforce-mode
   :ensure t
-  :custom
-  (fci-rule-color "#3F3F3F")
-  (fci-rule-column 80)
   :init
-  (add-hook 'prog-mode-hook 'fci-mode))
+  (add-hook 'prog-mode-hook 'column-enforce-mode))
 
 (provide 'config-edit)
