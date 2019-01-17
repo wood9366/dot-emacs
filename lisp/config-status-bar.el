@@ -106,10 +106,11 @@
                               ))
                             (item-major-mode
                              (list
-                              (powerline-raw " " face1)
-                              (powerline-major-mode face1)
-                              (powerline-raw " " face1)
-                              (funcall separator-left face1 face0 separator-height)
+                              (funcall separator-right face1 face0 separator-height)
+                              (powerline-raw " " face0)
+                              (powerline-major-mode face0)
+                              (powerline-raw " " face0)
+                              (powerline-raw "|" face0)
                               ))
                             (item-flycheck
                              (when flycheck-mode
@@ -120,7 +121,6 @@
                                 )))
                             (item-minor-modes
                              (list
-                              (funcall separator-right face1 face0 separator-height)
                               (powerline-raw " " face0)
                               (powerline-minor-modes face0)
                               (powerline-raw " " face0)
@@ -141,6 +141,7 @@
                                          item-file-props
                                          item-buffer))
                             (rhs (append item-flycheck
+                                         item-major-mode
                                          item-minor-modes
                                          item-position
                                          item-scroll-indicator)))
@@ -151,5 +152,6 @@
   (liyang/powerline-theme))
 
 (diminish 'eldoc-mode)
+(diminish 'abbrev-mode (char-to-string #x24D0))
 
 (provide 'config-status-bar)
