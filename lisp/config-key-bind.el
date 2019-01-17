@@ -15,6 +15,10 @@
   (evil-leader/set-key liyang/toggle-prefix '("toggle"))
   (evil-leader/set-key (concat liyang/toggle-prefix "f")
     '("flycheck" . global-flycheck-mode))
+  (evil-leader/set-key (concat liyang/toggle-prefix "c")
+    '("column-80" . column-enforce-mode))
+  (evil-leader/set-key (concat liyang/toggle-prefix "l")
+    '("line wrap" . toggle-truncate-lines))
 
   (evil-leader/set-key liyang/file-prefix '("file"))
   (evil-leader/set-key (concat liyang/file-prefix "f")
