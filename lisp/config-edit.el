@@ -57,6 +57,7 @@
 ; 80 column
 (use-package column-enforce-mode
   :ensure t
+  :diminish
   :init
   (add-hook 'prog-mode-hook 'column-enforce-mode))
 
