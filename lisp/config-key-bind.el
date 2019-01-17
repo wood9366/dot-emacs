@@ -19,6 +19,8 @@
     '("column 80" . column-enforce-mode))
   (evil-leader/set-key (concat liyang/toggle-prefix "l")
     '("line wrap" . toggle-truncate-lines))
+  (evil-leader/set-key (concat liyang/toggle-prefix "n")
+    '("line number" . global-nlinum-mode))
 
   (evil-leader/set-key liyang/file-prefix '("file"))
   (evil-leader/set-key (concat liyang/file-prefix "f")

@@ -21,7 +21,7 @@
   (defadvice reapply-themes (after adjust-linum-face-after-theme-load activate)
     (adjust-linum-face))
 
-  (add-hook 'after-init-hook 'global-nlinum-relative-mode)
+  (nlinum-relative-on)
   :config
   (adjust-linum-face)
   (setq nlinum-relative-redisplay-delay 0))
