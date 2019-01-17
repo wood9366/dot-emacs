@@ -128,7 +128,7 @@
                             (item-position
                              (list
                               (funcall separator-right face0 face1 separator-height)
-                              (powerline-raw " %3l %2C " face1)))
+                              (powerline-raw " %3l %2c " face1)))
                             (item-scroll-indicator
                              (list
                               (funcall separator-right face1 face0 separator-height)
