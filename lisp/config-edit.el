@@ -61,6 +61,6 @@
   (fci-rule-color "#3F3F3F")
   (fci-rule-column 80)
   :init
-  (add-hook 'after-change-major-mode-hook 'fci-mode))
+  (add-hook 'prog-mode-hook 'fci-mode))
 
 (provide 'config-edit)
