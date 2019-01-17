@@ -16,7 +16,7 @@
   (evil-leader/set-key (concat liyang/toggle-prefix "f")
     '("flycheck" . global-flycheck-mode))
   (evil-leader/set-key (concat liyang/toggle-prefix "c")
-    '("column-80" . column-enforce-mode))
+    '("column 80" . column-enforce-mode))
   (evil-leader/set-key (concat liyang/toggle-prefix "l")
     '("line wrap" . toggle-truncate-lines))
 
