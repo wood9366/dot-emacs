@@ -60,7 +60,7 @@
 
   (defun liyang/generate-tag (tag)
     (message "generate tag %s" tag)
-    (shell-command (format "ctags -f %s -e -R %s" tag (file-name-directory tag))))
+    (shell-command (format "ctags -R --c++-kinds=+p --fields=+iaS --extra=+q -f %s -e %s" tag (file-name-directory tag))))
 
   (defun liyang/select-tags-table ()
     (let ((file-name (buffer-file-name))
