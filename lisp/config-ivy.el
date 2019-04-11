@@ -45,6 +45,7 @@
   :init
   (add-hook 'after-init-hook 'counsel-mode)
   :config
+  (evil-global-set-key 'normal (kbd "g /") 'counsel-imenu)
   (setq-default counsel-mode-override-describe-bindings t))
 
 

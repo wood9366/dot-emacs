@@ -40,7 +40,9 @@
   (evil-leader/set-key liyang/buffer-prefix '("buffer"))
   (evil-leader/set-key (concat liyang/buffer-prefix "b")
     '("switch buffer" . ivy-switch-buffer))
-  (evil-leader/set-key (concat liyang/buffer-prefix "B") 'ibuffer))
+  (evil-leader/set-key (concat liyang/buffer-prefix "x") 'ibuffer)
+  (evil-leader/set-key (concat liyang/buffer-prefix "r") 'revert-buffer)
+  )
 
 (add-hook 'after-init-hook 'liyang/bind-key)
 

@@ -7,7 +7,10 @@
   )
 
 (use-package js2-mode
-  :ensure t)
+  :ensure t
+  :custom
+  (js-indent-level 2)
+  )
 
 (use-package json-mode
   :ensure t)

@@ -5,7 +5,8 @@
   (setq evil-want-integration t)
   (setq evil-want-keybinding nil)
   :config
-  (add-hook 'after-init-hook 'evil-mode))
+  (add-hook 'after-init-hook 'evil-mode)
+  (evil-global-set-key 'normal (kbd "g r") 'xref-find-references))
 
 (use-package evil-collection
   :after evil
