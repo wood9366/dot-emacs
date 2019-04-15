@@ -7,6 +7,10 @@
 
 (use-package lsp-ui
   :ensure t
+  :custom
+  (lsp-ui-sideline-show-symbol nil)
+  (lsp-ui-sideline-show-hover nil)
+  (lsp-ui-sideline-show-code-actions nil)
   :config
   (add-hook 'lsp-mode 'lsp-ui-mode)
   (evil-define-key 'normal java-mode-map (kbd "g r") 'lsp-ui-peek-find-references))
