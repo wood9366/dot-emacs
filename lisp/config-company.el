@@ -6,7 +6,8 @@
          ("M-/" . company-complete)
          ("M-." . company-other-backend)
          :map company-active-map
-         ("M-/" . company-other-backend)
+         ("M-." . company-other-backend)
+         ("M-/" . company-select-next)
          ("C-j" . company-select-next)
          ("C-k" . company-select-previous)
          ("C-w" . nil)
@@ -15,6 +16,13 @@
   (add-hook 'after-init-hook 'global-company-mode)
   :config
   (setq company-idle-delay 0.1)
+
+  (add-hook
+   'company-completion-started-hook
+   (lambda (&rest ignore)
+     (when evil-mode
+       (when (evil-insert-state-p)
+         (define-key evil-insert-state-map (kbd "C-k") nil)))))
 
   (setq company-backends
         '(company-capf
