@@ -11,3 +11,14 @@
 - x, tool
 - b, buffer
 - w, window
+# Solved Issues
+# #1 Emacs tip show with white fg and yellow bg, not clear
+*Issues*
+- os: macOS Mojave 10.14.4
+
+*Solved*:
+- run command line `defaults write org.gnu.Emacs NSRequiresAquaSystemAppearance true`
+- run `defaults delete org.gnu.Emacs NSRequiresAquaSystemAppearance` to back out change
+
+*Reference*
+- https://github.com/syl20bnr/spacemacs/issues/11541
