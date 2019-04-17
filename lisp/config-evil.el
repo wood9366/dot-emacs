@@ -6,7 +6,8 @@
   (setq evil-want-keybinding nil)
   :config
   (add-hook 'after-init-hook 'evil-mode)
-  (evil-global-set-key 'normal (kbd "g r") 'xref-find-references))
+  (evil-global-set-key 'normal (kbd "g o") 'xref-find-references)
+  )
 
 (use-package evil-collection
   :after evil
