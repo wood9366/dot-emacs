@@ -14,14 +14,14 @@
   (lsp-ui-doc-enable nil)
   :config
   (add-hook 'lsp-mode 'lsp-ui-mode)
-  (evil-define-key 'normal java-mode-map (kbd "g r") 'lsp-ui-peek-find-references))
+  (evil-define-key 'normal java-mode-map (kbd "g o") 'lsp-find-references))
 
 (use-package lsp-java
   :ensure t
   :after lsp
   :config
   (setq lsp-java-vmargs
-        (let ((lombok-path "/Users/liyang/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.16.20/ac76d9b956045631d1561a09289cbf472e077c01/lombok-1.16.20.jar"))
+        (let ((lombok-path "/Users/liyang/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.6/616105b0831250a2e443447508e6a8b26bc466fb/lombok-1.18.6.jar"))
           (append lsp-java-vmargs
                   `(,(format "-javaagent:%s" lombok-path)
                     ,(format "-Xbootclasspath/a:%s" lombok-path)))))
