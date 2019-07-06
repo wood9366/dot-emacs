@@ -14,7 +14,7 @@
 
   (add-hook 'omnisharp-mode-hook 'liyang/omnisharp-mode-hook)
 
-  (evil-define-key 'normal omnisharp-mode-map (kbd "g u") 'omnisharp-find-usages-with-ido)
+  (evil-define-key 'normal omnisharp-mode-map (kbd "g o") 'omnisharp-find-usages-with-ido)
   (evil-define-key 'normal omnisharp-mode-map (kbd "g I") 'omnisharp-find-implementations) ; g i is taken
   (evil-define-key 'normal omnisharp-mode-map (kbd "g d") 'omnisharp-go-to-definition)
   (evil-define-key 'normal omnisharp-mode-map (kbd "g r") 'omnisharp-run-code-action-refactoring)
