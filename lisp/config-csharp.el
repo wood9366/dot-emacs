@@ -9,11 +9,10 @@
   :config
   (setq omnisharp-server-executable-path "/usr/local/bin/omnisharp")
 
-  ;; (defun liyang/omnisharp-mode-hook()
-  (add-to-list (make-local-variable 'company-backends) 'company-omnisharp)
-  ;; )
+  (defun liyang/omnisharp-mode-hook()
+    (add-to-list (make-local-variable 'company-backends) 'company-omnisharp))
 
-  ;; (add-hook 'omnisharp-mode-hook 'liyang/omnisharp-mode-hook)
+  (add-hook 'omnisharp-mode-hook 'liyang/omnisharp-mode-hook)
 
   (evil-define-key 'normal omnisharp-mode-map (kbd "g u") 'omnisharp-find-usages-with-ido)
   (evil-define-key 'normal omnisharp-mode-map (kbd "g I") 'omnisharp-find-implementations) ; g i is taken
