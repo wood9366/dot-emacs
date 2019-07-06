@@ -41,6 +41,7 @@
 
 (use-package diminish :ensure t)
 (use-package fullframe :ensure t)
+(use-package hydra :ensure t)
 
 (require 'config-evil)
 (require 'config-key-bind)

@@ -69,23 +69,6 @@
                             (separator-right (intern (format "powerline-%s-%s"
                                                              (powerline-current-separator)
                                                              (cdr powerline-default-separator-dir))))
-                            (item-window-id
-                             (list
-                              (powerline-raw (let ((n (winum-get-number)))
-                                               (format " %s "
-                                                       (cond
-                                                        ((= n 1) (char-to-string #x278A))
-                                                        ((= n 2) (char-to-string #x278B))
-                                                        ((= n 3) (char-to-string #x278C))
-                                                        ((= n 4) (char-to-string #x278D))
-                                                        ((= n 5) (char-to-string #x278E))
-                                                        ((= n 6) (char-to-string #x278F))
-                                                        ((= n 7) (char-to-string #x2790))
-                                                        ((= n 8) (char-to-string #x2791))
-                                                        ((= n 9) (char-to-string #x2792))
-                                                        (t (number-to-string n)))))
-                                             face-window-id)
-                              (funcall separator-left face-window-id face-evil-state separator-height)))
                             (item-evil-state-tag
                              (list
                               (powerline-raw (format " %s " evil-state-tag) face-evil-state)
@@ -138,8 +121,7 @@
                                                  (format " %2d" (* 100 (/ (float (point)) (point-max))))))
                                              face0 'r)
                               (powerline-hud face0 face2)))
-                            (lhs (append item-window-id
-                                         item-evil-state-tag
+                            (lhs (append item-evil-state-tag
                                          item-file-props
                                          item-buffer))
                             (rhs (append item-flycheck

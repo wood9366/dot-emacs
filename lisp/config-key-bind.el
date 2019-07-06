@@ -26,17 +26,6 @@
   (evil-leader/set-key (concat liyang/file-prefix "f")
     '("find file" . counsel-find-file))
 
-  (evil-leader/set-key liyang/window-prefix '("window"))
-  (evil-leader/set-key (concat liyang/window-prefix "w") 'other-window)
-  (evil-leader/set-key (concat liyang/window-prefix "s")
-    '("split horizontal" . evil-window-split))
-  (evil-leader/set-key (concat liyang/window-prefix "v")
-    '("split vertical" . evil-window-vsplit))
-  (evil-leader/set-key (concat liyang/window-prefix "o")
-    '("keep current window" . delete-other-windows))
-  (evil-leader/set-key (concat liyang/window-prefix "c")
-    '("delete current window" . evil-window-delete))
-
   (evil-leader/set-key liyang/buffer-prefix '("buffer"))
   (evil-leader/set-key (concat liyang/buffer-prefix "b")
     '("switch buffer" . ivy-switch-buffer))
