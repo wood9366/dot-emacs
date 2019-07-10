@@ -42,8 +42,6 @@
   :init
   (setq uniquify-buffer-name-style 'forward))
 
-(add-hook 'after-init-hook (lambda () (diminish 'auto-revert-mode)))
-
 ;; colored title bar
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))

@@ -59,10 +59,4 @@
   :config
   (define-key evil-normal-state-map (kbd "SPC") 'evil-avy-goto-word-1))
 
-(use-package evil-matchit
-  :ensure t
-  :after (evil)
-  :init
-  (add-hook 'after-init-hook 'global-evil-matchit-mode)) 
-
 (provide 'config-evil)
