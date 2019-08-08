@@ -5,9 +5,11 @@
       '(("t" "todo" entry (file "~/note/_gtd.org")
          "* TODO %?\n:PROPERTIES:\n:CREATED: %T\n:END:\n")
         ("n" "note" entry (file+datetree "~/note/note.org")
-         "* %? %^G\n%T\n")))
+         "* %? %^G\n%T\n")
+        ("c" "scratch" entry (file "")
+         "* %T %?\n")))
 
-(setq org-default-notes-file "~/note/note.org")
+(setq org-default-notes-file "~/note/_scratch.org")
 (setq org-agenda-files '("~/note"))
 (evil-leader/set-key "cc" 'org-capture)
 (evil-leader/set-key "ca" 'org-agenda)
