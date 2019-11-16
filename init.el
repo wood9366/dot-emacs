@@ -35,10 +35,9 @@
 (use-package general
   :ensure t)
 
-(require 'config-evil)
-(require 'config-key-bind)
-(require 'config-common)
+(require 'config-utf8)
 (require 'config-exec-path)
+
 (require 'config-osx)
 (require 'config-theme)
 (require 'config-status-bar)
@@ -84,4 +83,9 @@
 (require 'config-web)
 (require 'config-java)
 (require 'config-python)
+
+(require 'config-evil)
+(require 'config-common)
+(require 'config-which-key)
+(require 'config-ediff)
 (require 'config-avy)

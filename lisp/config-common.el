@@ -7,7 +7,10 @@
 (if (functionp 'scroll-bar-mode)
     (scroll-bar-mode -1))
 
-(setq use-dialog-box nil)
+;; set title bar color
+(when _gui_
+  (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+  (add-to-list 'default-frame-alist '(ns-appearance . dark)))
 
 ;; hide startup message
 (setq inhibit-startup-message t)
@@ -17,6 +20,10 @@
 (setq-default initial-scratch-message
               (concat ";; Happy hacking, " user-login-name " - Emacs ♥ you!\n\n"))
 
+;; no popup dialog
+(setq use-dialog-box nil)
+
+;; use y/n answer question
 (fset 'yes-or-no-p 'y-or-n-p)
 
 ;; redirect auto save location
@@ -32,56 +39,41 @@
 ;; remap M-x key bind to C-c C-m
 (global-set-key (kbd "C-c C-m") 'execute-extended-command)
 
+;; bind key for kill back word
+(global-set-key (kbd "C-w") 'backward-kill-word)
+
+;; auto revert buffer when change
+(use-package autorevert
+  :diminish (auto-revert-mode . "r"))
+
+;; use visual bell instead of sound bell
 (use-package mode-line-bell
   :ensure t
-  :init
-  (add-hook 'after-init-hook 'mode-line-bell-mode))
+  :config
+  (mode-line-bell-mode))
 
 ;; display difference name for same name buffer
 (use-package uniquify
   :init
   (setq uniquify-buffer-name-style 'forward))
 
-;; colored title bar
-(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
-(add-to-list 'default-frame-alist '(ns-appearance . dark))
+;; ;; view big file
+;; (defun wood9366/open-big-file-hook()
+;;   (when (> (buffer-size) (* 1024 1024))
+;;     (message (concat "open big file" (buffer-name)))
+;;     (setq buffer-read-only t)
+;;     (buffer-disable-undo)
+;;     (fundamental-mode)))
 
-;; view big file
-(defun wood9366/open-big-file-hook()
-  (when (> (buffer-size) (* 1024 1024))
-    (message (concat "open big file" (buffer-name)))
-    (setq buffer-read-only t)
-    (buffer-disable-undo)
-    (fundamental-mode)))
-
-(use-package vlf
-  :ensure t
-  :init
-  (defun ffap-vlf ()
-    "Find file at point with VLF."
-    (interactive)
-    (let ((file (ffap-file-at-point)))
-      (unless (file-exists-p file)
-        (error "File does not exist: %s" file))
-      (vlf file))))
-
-;; display key guide
-(use-package which-key
-  :ensure t
-  :diminish
-  :init
-  (evil-leader/set-key "t w" 'which-key-mode)
-  (which-key-mode)
-  :custom
-  (which-key-enable-extended-define-key t)
-  :config
-  (setq which-key-idle-delay 0.5)
-  (setq which-key-popup-type 'minibuffer))
-
-;; ediff
-(setq ediff-window-setup-function 'ediff-setup-windows-plain)
-(setq ediff-split-window-function (if (> (frame-width) 150)
-				      'split-window-horizontally
-				    'split-window-vertically))
+;; (use-package vlf
+;;   :ensure t
+;;   :init
+;;   (defun ffap-vlf ()
+;;     "Find file at point with VLF."
+;;     (interactive)
+;;     (let ((file (ffap-file-at-point)))
+;;       (unless (file-exists-p file)
+;;         (error "File does not exist: %s" file))
+;;       (vlf file))))
 
 (provide 'config-common)

@@ -29,7 +29,7 @@
   :ensure t
   :requires evil)
 
-(unless _gui_
+(when _term_
   (use-package evil-terminal-cursor-changer
     :ensure t
     :requires evil
