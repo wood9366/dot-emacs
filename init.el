@@ -25,9 +25,15 @@
 (require 'config-site-lisp)
 
 (require-package 'use-package)
-(require-package 'diminish)
-(require-package 'hydra)
-(require-package 'general)
+
+(use-package diminish
+  :ensure t)
+
+(use-package hydra
+  :ensure t)
+
+(use-package general
+  :ensure t)
 
 (require 'config-evil)
 (require 'config-key-bind)
@@ -78,3 +84,4 @@
 (require 'config-web)
 (require 'config-java)
 (require 'config-python)
+(require 'config-avy)

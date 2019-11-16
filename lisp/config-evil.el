@@ -1,25 +1,38 @@
 (use-package evil
   :ensure t
+  :diminish "e"
   :init
-  (setq evil-want-abbrev-expand-on-insert-exit nil)
   (setq evil-want-integration t)
   (setq evil-want-keybinding nil)
-  :config
   (add-hook 'after-init-hook 'evil-mode)
-  (evil-global-set-key 'normal (kbd "g o") 'xref-find-references)
-  )
+  :custom
+  (evil-want-abbrev-expand-on-insert-exit nil)
+  (evil-kill-on-visual-paste nil)
+  :config
+  (evil-global-set-key 'normal (kbd "g o") 'xref-find-references))
+
+(use-package evil-escape
+  :ensure t
+  :requires evil
+  :diminish
+  :config
+  (setq evil-escape-key-sequence "kj")
+  (evil-escape-mode 1))
+
+(use-package evil-surround
+  :ensure t
+  :diminish
+  :init
+  (add-hook 'after-init-hook 'global-evil-surround-mode))
 
 (use-package evil-collection
-  :after evil
   :ensure t
-  :custom (evil-collection-company-use-tng nil)
-  :config
-  (evil-collection-init))
+  :requires evil)
 
-(unless (display-graphic-p)
+(unless _gui_
   (use-package evil-terminal-cursor-changer
     :ensure t
-    :requires (evil)
+    :requires evil
     :init
     (add-hook 'after-init-hook 'etcc-on)
     :config
@@ -29,34 +42,5 @@
           evil-insert-state-cursor 'bar  ; ⎸
           evil-emacs-state-cursor  'hbar) ; _
     ))
-
-(defconst liyang/leader-key ",")
-
-(use-package evil-leader
-  :ensure t
-  :after (evil)
-  :config
-  (global-evil-leader-mode 1)
-  (evil-leader/set-leader liyang/leader-key))
-
-(use-package evil-surround
-  :ensure t
-  :after (evil)
-  :config
-  (global-evil-surround-mode 1))
-
-(use-package evil-escape
-  :ensure t
-  :diminish
-  :after (evil)
-  :config
-  (setq evil-escape-key-sequence "kj")
-  (evil-escape-mode 1))
-
-(use-package avy
-  :ensure t
-  :after evil
-  :config
-  (define-key evil-normal-state-map (kbd "SPC") 'evil-avy-goto-word-1))
 
 (provide 'config-evil)
