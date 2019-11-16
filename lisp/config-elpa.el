@@ -2,8 +2,8 @@
 
 (package-initialize)
 (setq package-archives '(("gnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-			 ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-			 ("org" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
+                         ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+                         ("org" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
 
 (defun require-package (package &optional min-version no-refresh)
   "Install given PACKAGE, optionally requiring MIN-VERSION.
