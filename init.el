@@ -38,9 +38,6 @@
 (require 'config-utf8)
 (require 'config-exec-path)
 (require 'config-osx)
-(if (display-graphic-p)
-    (require 'config-font))
-
 (require 'config-ibuffer)
 (require 'config-edit)
 (require 'config-hippie-expand)
@@ -87,3 +84,4 @@
 (require 'config-avy)
 (require 'config-theme)
 (require 'config-status-bar)
+(require 'config-font)
