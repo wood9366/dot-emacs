@@ -37,11 +37,7 @@
 
 (require 'config-utf8)
 (require 'config-exec-path)
-
 (require 'config-osx)
-(require 'config-theme)
-(require 'config-status-bar)
-
 (if (display-graphic-p)
     (require 'config-font))
 
@@ -89,3 +85,5 @@
 (require 'config-which-key)
 (require 'config-ediff)
 (require 'config-avy)
+(require 'config-theme)
+(require 'config-status-bar)
