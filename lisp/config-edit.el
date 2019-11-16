@@ -1,35 +1,20 @@
-;; highlight matched parenthese cursor on
-(add-hook 'after-init-hook 'show-paren-mode)
-(set-face-background 'show-paren-match "dark magenta")
 
-(use-package rainbow-delimiters
-  :ensure t
-  :init
-  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
-  :custom-face
-  (rainbow-delimiters-depth-1-face ((t (:foreground "dark orange"))))
-  (rainbow-delimiters-depth-2-face ((t (:foreground "deep pink"))))
-  (rainbow-delimiters-depth-3-face ((t (:foreground "chartreuse"))))
-  (rainbow-delimiters-depth-4-face ((t (:foreground "deep sky blue"))))
-  (rainbow-delimiters-depth-5-face ((t (:foreground "yellow"))))
-  (rainbow-delimiters-depth-6-face ((t (:foreground "orchid"))))
-  (rainbow-delimiters-depth-7-face ((t (:foreground "spring green"))))
-  (rainbow-delimiters-depth-8-face ((t (:foreground "sienna1")))))
+;; search or match ignore case
+(setq case-fold-search t) 
 
-;; basic
-(setq-default case-fold-search t ;; search or match ignore case
-              column-number-mode t ;; show column number
-              indent-tabs-mode nil ;; replace tab with space
-              tab-width 4) 
+;; tab
+(setq indent-tabs-mode nil ;; replace tab with space
+      tab-width 4) 
 
 ;; (use-package subword
 ;;   :diminish subword-mode
 ;;   :init
 ;;   (add-hook 'c-mode-common-hook 'subword-mode))
 
-;; (when (fboundp 'global-prettify-symbols-mode)
-;;   (add-hook 'after-init-hook 'global-prettify-symbols-mode))
+(when (fboundp 'global-prettify-symbols-mode)
+  (add-hook 'after-init-hook 'global-prettify-symbols-mode))
 
+;; bind key for kill back word
 (global-set-key "\C-w" 'backward-kill-word)
 
 (use-package browse-kill-ring
@@ -46,17 +31,15 @@
   :init
   (add-hook 'after-init-hook 'global-undo-tree-mode))
 
-;; (use-package highlight-escape-sequences
-;;   :ensure t
-;;   :init
-;;   (add-hook 'after-init-hook 'hes-mode))
-
-; highlight current line
-(global-hl-line-mode)
-
-; 80 column
-(use-package column-enforce-mode
+(use-package highlight-escape-sequences
   :ensure t
-  :diminish)
+  :diminish hes-mode
+  :init
+  (add-hook 'after-init-hook 'hes-mode))
+
+;; ; 80 column
+;; (use-package column-enforce-mode
+;;   :ensure t
+;;   :diminish)
 
 (provide 'config-edit)

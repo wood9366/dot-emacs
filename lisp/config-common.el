@@ -39,9 +39,6 @@
 ;; remap M-x key bind to C-c C-m
 (global-set-key (kbd "C-c C-m") 'execute-extended-command)
 
-;; bind key for kill back word
-(global-set-key (kbd "C-w") 'backward-kill-word)
-
 ;; auto revert buffer when change
 (use-package autorevert
   :diminish (auto-revert-mode . "r"))
