@@ -1,23 +1,26 @@
 (use-package evil
   :ensure t
-  :hook (after-init . evil-mode)
   :custom
   (evil-want-integration t)
   (evil-want-keybinding nil)
   (evil-want-abbrev-expand-on-insert-exit nil)
-  (evil-kill-on-visual-paste nil))
+  (evil-kill-on-visual-paste nil)
+  :config
+  (evil-mode))
 
 (use-package evil-escape
   :requires evil
   :ensure t
-  :hook (after-init . evil-escape-mode)
   :custom
-  (evil-escape-key-sequence "kj"))
+  (evil-escape-key-sequence "kj")
+  :config
+  (evil-escape-mode))
 
 (use-package evil-surround
   :requires evil
   :ensure t
-  :hook (after-init . evil-surround-mode))
+  :config
+  (evil-surround-mode))
 
 (use-package evil-collection
   :requires evil
@@ -27,8 +30,8 @@
   (use-package evil-terminal-cursor-changer
     :requires evil
     :ensure t
-    :hook (after-init . etcc-on)
     :config
+    (etcc-on)
     (setq evil-motion-state-cursor 'box  ; █
           evil-visual-state-cursor 'box  ; █
           evil-normal-state-cursor 'box  ; █
