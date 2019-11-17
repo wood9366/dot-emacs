@@ -94,3 +94,5 @@
 (require 'config-which-key)
 (require 'config-avy)
 
+(require 'config-ivy)
+
