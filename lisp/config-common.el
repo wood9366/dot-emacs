@@ -39,12 +39,14 @@
 ;; auto revert buffer when change
 (use-package autorevert
   :ensure t
-  :hook (after-init . auto-revert-mode))
+  :config
+  (auto-revert-mode))
 
 ;; use visual bell instead of sound bell
 (use-package mode-line-bell
   :ensure t
-  :hook (after-init . mode-line-bell-mode))
+  :config
+  (mode-line-bell-mode))
 
 ;; display difference name for same name buffer
 (use-package uniquify
