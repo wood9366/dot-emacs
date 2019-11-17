@@ -54,8 +54,9 @@
     (interactive)
     (wood9366/set-font wood9366/font-en wood9366/font-cn wood9366/font-sym wood9366/font-size))
 
-  (global-set-key (kbd "C-x C-=") 'wood9366/increase-font-size)
-  (global-set-key (kbd "C-x C--") 'wood9366/decrease-font-size)
+  (general-def
+    "C-x C-=" 'wood9366/increase-font-size
+    "C-x C--" 'wood9366/decrease-font-size)
 
   (setq wood9366/font-size-list '((8 8 8)
                                   (9 8 9)
@@ -70,10 +71,13 @@
                                   (18 18 18)
                                   ))
 
-  (wood9366/set-font "SauceCodePro Nerd Font Mono"
-                     "Source Han Sans SC"
-                     "Arial Unicode MS"
-                     15))
+  (add-hook 'after-init-hook
+            (lambda ()
+              (wood9366/set-font "SauceCodePro Nerd Font Mono"
+                                 "Source Han Sans SC"
+                                 "Arial Unicode MS"
+                                 15)))
+  )
 
 ;; |abcd|efgh|ijkl|mnop|qrst|uvwx|yz|
 ;; |ABCD|EFGH|IJKL|MNOP|QRST|UVWX|YZ|

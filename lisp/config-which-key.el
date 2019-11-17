@@ -1,12 +1,10 @@
 
 (use-package which-key
   :ensure t
-  :diminish
+  :hook (after-init . which-key-mode)
   :custom
   (which-key-enable-extended-define-key t)
-  :config
-  (which-key-mode)
-  (setq which-key-idle-delay 0.5)
-  (setq which-key-popup-type 'minibuffer))
+  (which-key-idle-delay 0.5)
+  (which-key-popup-type 'minibuffer))
 
 (provide 'config-which-key)

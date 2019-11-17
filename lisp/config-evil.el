@@ -1,40 +1,33 @@
 (use-package evil
   :ensure t
-  :diminish "e"
-  :init
-  (setq evil-want-integration t)
-  (setq evil-want-keybinding nil)
-  (add-hook 'after-init-hook 'evil-mode)
+  :hook (after-init . evil-mode)
   :custom
+  (evil-want-integration t)
+  (evil-want-keybinding nil)
   (evil-want-abbrev-expand-on-insert-exit nil)
-  (evil-kill-on-visual-paste nil)
-  :config
-  (evil-global-set-key 'normal (kbd "g o") 'xref-find-references))
+  (evil-kill-on-visual-paste nil))
 
 (use-package evil-escape
-  :ensure t
   :requires evil
-  :diminish
-  :config
-  (setq evil-escape-key-sequence "kj")
-  (evil-escape-mode 1))
+  :ensure t
+  :hook (after-init . evil-escape-mode)
+  :custom
+  (evil-escape-key-sequence "kj"))
 
 (use-package evil-surround
+  :requires evil
   :ensure t
-  :diminish
-  :init
-  (add-hook 'after-init-hook 'global-evil-surround-mode))
+  :hook (after-init . evil-surround-mode))
 
 (use-package evil-collection
-  :ensure t
-  :requires evil)
+  :requires evil
+  :ensure t)
 
 (when _term_
   (use-package evil-terminal-cursor-changer
-    :ensure t
     :requires evil
-    :init
-    (add-hook 'after-init-hook 'etcc-on)
+    :ensure t
+    :hook (after-init . etcc-on)
     :config
     (setq evil-motion-state-cursor 'box  ; █
           evil-visual-state-cursor 'box  ; █

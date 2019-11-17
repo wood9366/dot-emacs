@@ -9,6 +9,4 @@
   (let ((default-directory  "/usr/local/share/emacs/site-lisp"))
     (normal-top-level-add-subdirs-to-load-path)))
 
-;; todo, generate auto load for site plugins and load it
-
 (provide 'config-site-lisp)

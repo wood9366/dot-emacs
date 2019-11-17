@@ -36,22 +36,19 @@
   (unless (file-directory-p backup-dir) (make-directory backup-dir t))
   (setq backup-directory-alist `((".*" . ,backup-dir))))
 
-;; remap M-x key bind to C-c C-m
-(global-set-key (kbd "C-c C-m") 'execute-extended-command)
-
 ;; auto revert buffer when change
 (use-package autorevert
-  :diminish (auto-revert-mode . "r"))
+  :ensure t
+  :hook (after-init . auto-revert-mode))
 
 ;; use visual bell instead of sound bell
 (use-package mode-line-bell
   :ensure t
-  :config
-  (mode-line-bell-mode))
+  :hook (after-init . mode-line-bell-mode))
 
 ;; display difference name for same name buffer
 (use-package uniquify
-  :init
+  :config
   (setq uniquify-buffer-name-style 'forward))
 
 ;; ;; view big file

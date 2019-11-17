@@ -78,10 +78,19 @@
 (require 'config-python)
 
 (require 'config-evil)
+
 (require 'config-common)
-(require 'config-which-key)
 (require 'config-ediff)
-(require 'config-avy)
+(require 'config-key-bind)
+
+(require 'config-edit)
+(require 'config-kill-ring)
+(require 'config-show-paren)
+
+(require 'config-font)
 (require 'config-theme)
 (require 'config-status-bar)
-(require 'config-font)
+
+(require 'config-which-key)
+(require 'config-avy)
+
