@@ -37,6 +37,7 @@
   "g o" '(xref-find-references :wk "find ref")
   "g /" 'imenu)
 
+;; project
 (general-create-definer ly/project-def
   :prefix ", p")
 
@@ -47,6 +48,7 @@
                 "s" '(ly/counsel-projectile-search :wk "search")
                 "r" '(projectile-invalidate-cache :wk "refresh cache"))
 
+;; tools
 (general-create-definer ly/tool-def
   :prefix ", x")
 
@@ -54,6 +56,7 @@
   "" '(nil :wk "tool")
   "b" 'ibuffer)
 
+;; toggle
 (general-create-definer ly/toggle-def
   :prefix ", t")
 
@@ -66,6 +69,7 @@
                "N" '(global-nlinum-mode :wk "[line no]")
                "l" '(toggle-truncate-lines :wk "line wrap"))
 
+;; file
 (general-create-definer ly/file-def
   :prefix ", f")
 
@@ -73,6 +77,7 @@
              "" '(nil :wk "file")
              "f" '(find-file :wk "open file"))
 
+;; buffer
 (general-create-definer ly/buffer-def
   :prefix ", b")
 
@@ -82,6 +87,7 @@
                "o" '(switch-to-buffer-other-window :wk "open buffer in others")
                "x" '(kill-this-buffer :wk "kill buffer"))
 
+;; quit
 (general-create-definer ly/quit-def
   :prefix ", q")
 
