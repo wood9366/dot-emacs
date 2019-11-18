@@ -37,6 +37,13 @@
   "g o" 'xref-find-references
   "g /" 'imenu)
 
+(general-def '(normal visual)
+  :prefix ", p"
+  "p" 'counsel-projectile
+  "w" 'counsel-projectile-switch-project
+  "s" 'ly/counsel-projectile-search
+  "r" 'projectile-invalidate-cache)
+
 ;; multiple cursor bind
 (general-def '(normal visual)
   :prefix ", m"
@@ -90,7 +97,7 @@
 ;;   (evil-leader/set-key (concat liyang/buffer-prefix "b")
 ;;     '("switch buffer" . ivy-switch-buffer))
 ;;   (evil-leader/set-key (concat liyang/buffer-prefix "x") 'ibuffer)
-;;   (evil-leader/set-key (concat liyang/buffer-prefix "r") 'revert-buffer)
+
 ;;   (evil-leader/set-key (concat liyang/buffer-prefix "d") 'kill-this-buffer)
 ;;   )
 

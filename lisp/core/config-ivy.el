@@ -52,6 +52,14 @@
   :config
   (counsel-mode 1)
 
+  (defconst ly/counsel-search-function
+    (cond
+     ((executable-find "rg") 'counsel-rg)
+     ((executable-find "ag") 'counsel-ag)
+     ((executable-find "pt") 'counsel-pt)
+     ((executable-find "ack") 'counsel-ack)
+     (t nil)))
+
   (general-def counsel-mode-map
     [remap yank-pop] nil))
 

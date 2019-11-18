@@ -50,7 +50,7 @@
 
 ;; utilities
 (require 'config-dired)
-;; (require 'config-projectile)
+(require 'config-projectile)
 ;; (require 'config-sessions)
 
 (require 'key-bind)
