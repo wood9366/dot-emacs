@@ -3,7 +3,8 @@
   :ensure t
   :custom
   (sml/no-confirm-load-theme t)
-  (sml/theme 'dark))
+  (sml/theme 'dark)
+  (sml/pre-minor-modes-separator " | "))
 
 (add-hook 'after-init-hook
           (lambda ()
