@@ -1,40 +1,32 @@
+
 (use-package company
   :ensure t
-  :diminish "ⓒ "
-  :bind (("M-C-/" . company-complete)
-         :map company-mode-map
-         ("M-/" . company-complete)
-         ("M-." . company-other-backend)
-         :map company-active-map
-         ("M-." . company-other-backend)
-         ("M-/" . company-select-next)
-         ("C-j" . company-select-next)
-         ("C-k" . company-select-previous)
-         ("C-w" . nil)
-         ("C-l" . company-show-location))
-  :init
-  (add-hook 'after-init-hook 'global-company-mode)
+  :diminish "c"
   :config
-  (setq company-idle-delay 0.1)
+  (global-company-mode 1)
 
-  (add-hook
-   'company-completion-started-hook
-   (lambda (&rest ignore)
-     (when evil-mode
-       (when (evil-insert-state-p)
-         (define-key evil-insert-state-map (kbd "C-k") nil)))))
+  (setq company-idle-delay nil)
+
+  (general-def 'insert company-mode-map
+    "C-/" 'company-complete
+    "C-_" 'company-complete
+    "C-x C-f" 'company-files
+    "C-x C-x" 'company-yasnippet)
+
+  (general-def nil company-active-map
+    "C-j" 'company-select-next
+    "C-n" 'company-select-next
+    "C-/" 'company-select-next
+    "C-_" 'company-select-next
+    "C-k" 'company-select-previous
+    "C-p" 'company-select-previous
+    "C-f" 'company-next-page
+    "C-b" 'company-previous-page
+    "C-w" nil)
 
   (setq company-backends
-        '(company-capf
-          company-yasnippet
-          company-files
+        '(company-capf 
           (company-dabbrev-code company-gtags company-etags company-keywords)
           company-dabbrev)))
-
-(use-package company-quickhelp
-  :ensure t
-  :after (company)
-  :init
-  (add-hook 'after-init-hook 'company-quickhelp-mode))
 
 (provide 'config-company)

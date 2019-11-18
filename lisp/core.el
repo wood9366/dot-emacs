@@ -45,13 +45,13 @@
 (require 'config-smex)
 (require 'config-ivy)
 
+;; complete
+(require 'config-company)
+
 ;; utilities
 (require 'config-dired)
 ;; (require 'config-projectile)
 ;; (require 'config-sessions)
-;; (require 'config-windows)
-
-;; (require 'config-company)
 
 (require 'key-bind)
 
