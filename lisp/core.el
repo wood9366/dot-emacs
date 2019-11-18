@@ -7,6 +7,7 @@
 
 (require 'vars)
 
+;; package
 (require 'config-custom-file)
 (require 'config-local)
 
@@ -27,12 +28,14 @@
 (use-package fullframe
   :ensure t)
 
+;; environment
 (require 'config-utf8)
 (require 'config-exec-path)
 (require 'config-osx)
 
 (require 'config-evil)
 
+;; basic
 (require 'config-common)
 (require 'config-edit)
 

@@ -74,4 +74,10 @@
   (set-face-attribute 'nlinum-current-line nil
                       :foreground "#FB8C1D"))
 
+;; flycheck
+(use-package flycheck
+  :ensure t
+  :diminish "f"
+  :defer t)
+
 (provide 'config-edit)
