@@ -37,13 +37,34 @@
   "g o" '(xref-find-references :wk "find ref")
   "g /" 'imenu)
 
-(general-def '(normal visual)
-  :prefix ", p"
-  "" '(nil :wk "project")
-  "p" '(counsel-projectile :wk "find")
-  "w" '(counsel-projectile-switch-project :wk "switch")
-  "s" '(ly/counsel-projectile-search :wk "search")
-  "r" '(projectile-invalidate-cache :wk "refresh cache"))
+(general-create-definer ly/project-def
+  :prefix ", p")
+
+(ly/project-def '(normal visual)
+                "" '(nil :wk "project")
+                "p" '(counsel-projectile :wk "find")
+                "w" '(counsel-projectile-switch-project :wk "switch")
+                "s" '(ly/counsel-projectile-search :wk "search")
+                "r" '(projectile-invalidate-cache :wk "refresh cache"))
+
+(general-create-definer ly/tool-def
+  :prefix ", x")
+
+(ly/tool-def '(normal visual)
+  "" '(nil :wk "tool")
+  "b" 'ibuffer)
+
+(general-create-definer ly/toggle-def
+  :prefix ", t")
+
+(ly/toggle-def '(normal visual)
+               "" '(nil :wk "toggle")
+               "(" '(rainbow-delimiters-mode :wk "rainbow paren")
+               "f" '(flycheck-mode :wk "flycheck")
+               "F" '(global-flycheck-mode :wk "[flycheck]")
+               "n" '(nlinum-mode :wk "line no")
+               "N" '(global-nlinum-mode :wk "[line no]")
+               "l" '(toggle-truncate-lines :wk "line wrap"))
 
 ;; multiple cursor bind
 (general-def '(normal visual)
