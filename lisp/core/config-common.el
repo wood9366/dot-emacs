@@ -39,14 +39,18 @@
 ;; auto revert buffer when change
 (use-package autorevert
   :ensure t
+  :diminish (auto-revert-mode . "r")
   :config
-  (auto-revert-mode))
+  (auto-revert-mode 1))
+
+;; eldoc
+(diminish 'eldoc-mode "d")
 
 ;; use visual bell instead of sound bell
 (use-package mode-line-bell
   :ensure t
   :config
-  (mode-line-bell-mode))
+  (mode-line-bell-mode 1))
 
 ;; display difference name for same name buffer
 (use-package uniquify
@@ -56,7 +60,10 @@
 ;; show key tips
 (use-package which-key
   :ensure t
+  :diminish
   :config
+  (which-key-mode 1)
+
   (setq which-key-enable-extended-define-key t
         which-key-idle-delay 0.5
         which-key-popup-type 'minibuffer))

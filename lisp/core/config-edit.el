@@ -18,6 +18,7 @@
 ;; show undo branches visually
 (use-package undo-tree
   :ensure t
+  :diminish "u"
   :defer t)
 
 (use-package highlight-escape-sequences

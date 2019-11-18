@@ -11,6 +11,7 @@
 (use-package evil-escape
   :requires evil
   :ensure t
+  :diminish
   :custom
   (evil-escape-key-sequence "kj")
   :config
