@@ -63,8 +63,9 @@
   :defer t
   :diminish "m")
 
-;; linum
+;; line number
 (use-package nlinum
+  :ensure t
   :defer t
   :config
   (setq nlinum-highlight-current-line t)
