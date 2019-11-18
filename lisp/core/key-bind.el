@@ -49,4 +49,4 @@
 
 ;; (add-hook 'after-init-hook 'liyang/bind-key)
 
-(provide 'config-key-bind)
+(provide 'key-bind)

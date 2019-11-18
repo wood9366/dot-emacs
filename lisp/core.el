@@ -32,7 +32,6 @@
 
 (require 'config-common)
 (require 'config-ediff)
-(require 'config-key-bind)
 
 (require 'config-edit)
 (require 'config-show-paren)
@@ -59,5 +58,7 @@
 ;; (require 'config-dired)
 
 ;; (require 'config-company)
+
+(require 'key-bind)
 
 (provide 'core)
