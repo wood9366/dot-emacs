@@ -8,7 +8,8 @@
     ", ," 'execute-extended-command)
 
   (general-def 'normal
-    "g o" 'xref-find-references))
+    "g o" 'xref-find-references
+    "g /" 'imenu))
 
 ;; (defconst liyang/file-prefix "f")
 ;; (defconst liyang/quit-prefix "q")
