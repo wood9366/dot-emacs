@@ -53,6 +53,34 @@
   :config
   (setq uniquify-buffer-name-style 'forward))
 
+;; show key tips
+(use-package which-key
+  :ensure t
+  :config
+  (setq which-key-enable-extended-define-key t
+        which-key-idle-delay 0.5
+        which-key-popup-type 'minibuffer))
+
+;; ediff
+(setq ediff-window-setup-function 'ediff-setup-windows-plain)
+(setq ediff-split-window-function (if (> (frame-width) 150)
+                                      'split-window-horizontally
+                                    'split-window-vertically))
+
+;; undo/redo window layout
+(winner-mode 1)
+
+;; ace window
+(use-package ace-window
+  :config
+  (setq aw-keys '(?a ?s ?d ?f ?j ?k ?l))
+  (set-face-attribute
+   'aw-leading-char-face nil
+   :foreground "deep sky blue"
+   :weight 'bold
+   :box nil
+   :height 3.0))
+
 ;; ;; view big file
 ;; (defun wood9366/open-big-file-hook()
 ;;   (when (> (buffer-size) (* 1024 1024))

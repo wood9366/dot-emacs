@@ -1,15 +1,60 @@
 
+(defhydra hydra-window (:color red :timeout 0.7)
+  " window"
+  ("h" evil-window-left "left")
+  ("l" evil-window-right "right")
+  ("k" evil-window-up "up")
+  ("j" evil-window-down "down")
+  ("s" evil-window-split "split horizontal")
+  ("v" evil-window-vsplit "split vertical")
+  ("c" evil-window-delete "close")
+  ("o" (lambda () (interactive) (delete-other-windows)) "maximum")
+  ("x" (lambda () (interactive)
+         (setq current-prefix-arg '(16))
+         (call-interactively 'ace-window)) "delete")
+  ("w" ace-window "ace" :color blue)
+  ("u" (lambda ()
+         (interactive)
+         (progn
+           (winner-undo)
+           (setq this-command 'winner-undo))) "undo")
+  ("r" winner-redo "redo"))
+
 (general-def
+  "M-/" 'hippie-expand
   "C-c C-m" 'execute-extended-command
   "C-w" 'backward-kill-word)
 
-(with-eval-after-load 'evil
-  (general-def '(normal visual)
-    ", ," 'execute-extended-command)
+(general-def '(normal visual)
+  ", ," 'execute-extended-command
+  ", w" 'hydra-window/body)
 
-  (general-def 'normal
-    "g o" 'xref-find-references
-    "g /" 'imenu))
+(general-def 'normal
+  ", v" 'er/expand-region
+  "g c" 'evil-avy-goto-word-1
+  "g o" 'xref-find-references
+  "g /" 'imenu)
+
+;; multiple cursor bind
+(general-def '(normal visual)
+  :prefix ", m"
+  "a" 'evil-mc-make-all-cursors
+  "A" 'evil-mc-undo-all-cursors
+  "p" 'evil-mc-pause-cursors
+  "P" 'evil-mc-resume-cursors
+  "f" 'evil-mc-make-and-goto-first-cursor
+  "l" 'evil-mc-make-and-goto-last-cursor
+  "c" 'evil-mc-make-cursor-here
+  "," 'evil-mc-make-cursor-move-next-line
+  "." 'evil-mc-make-cursor-move-prev-line
+  "j" 'evil-mc-make-and-goto-next-cursor
+  "J" 'evil-mc-skip-and-goto-next-cursor
+  "k" 'evil-mc-make-and-goto-prev-cursor
+  "K" 'evil-mc-skip-and-goto-prev-cursor
+  "n" 'evil-mc-make-and-goto-next-match
+  "N" 'evil-mc-skip-and-goto-next-match
+  "p" 'evil-mc-make-and-goto-prev-match
+  "P" 'evil-mc-skip-and-goto-prev-match)
 
 ;; (defconst liyang/file-prefix "f")
 ;; (defconst liyang/quit-prefix "q")

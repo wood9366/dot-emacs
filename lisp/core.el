@@ -31,24 +31,20 @@
 (require 'config-evil)
 
 (require 'config-common)
-(require 'config-ediff)
-
 (require 'config-edit)
-(require 'config-show-paren)
 
+;; theme
 (require 'config-font)
 (require 'config-theme)
 (require 'config-status-bar)
 
-(require 'config-which-key)
-(require 'config-avy)
-
+;; candidate framework
 (require 'config-smex)
 (require 'config-ivy)
 
+;; utilities
 ;; (require 'config-ibuffer)
 ;; (require 'config-hippie-expand)
-;; (require 'config-expand-region)
 ;; (require 'config-multiple-cursor)
 ;; (require 'config-linum)
 
