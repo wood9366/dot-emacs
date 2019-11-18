@@ -81,4 +81,12 @@
   :diminish "f"
   :defer t)
 
+;; yasnippet
+(use-package yasnippet
+  :ensure t
+  :diminish (yas-minor-mode . "y")
+  :config
+  (yas-reload-all)
+  (add-hook 'prog-mode-hook #'yas-minor-mode))
+
 (provide 'config-edit)

@@ -94,6 +94,17 @@
 (ly/quit-def '(normal visual)
              "" '(nil :wk "quit")
              "q" '(save-buffers-kill-terminal :wk "exit"))
+
+;; yasnippet
+(general-create-definer ly/yasnippet-def
+  :prefix ", y")
+
+(ly/yasnippet-def '(normal visual)
+                  "" '(nil :wk "yas")
+                  "r" '(yas-reload-all :wk "reload")
+                  "i" '(yas-insert-snippet :wk "insert")
+                  "y" '(yas-visit-snippet-file :wk "open")
+                  "n" '(yas-new-snippet :wk "new"))
  
 ;; multiple cursor bind
 (general-def '(normal visual)
