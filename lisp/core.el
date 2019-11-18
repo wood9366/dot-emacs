@@ -24,6 +24,9 @@
 (use-package general
   :ensure t)
 
+(use-package fullframe
+  :ensure t)
+
 (require 'config-utf8)
 (require 'config-exec-path)
 (require 'config-osx)
@@ -43,11 +46,6 @@
 (require 'config-ivy)
 
 ;; utilities
-;; (require 'config-ibuffer)
-;; (require 'config-hippie-expand)
-;; (require 'config-multiple-cursor)
-;; (require 'config-linum)
-
 ;; (require 'config-projectile)
 ;; (require 'config-sessions)
 ;; (require 'config-windows)

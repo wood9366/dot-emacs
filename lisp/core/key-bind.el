@@ -13,6 +13,7 @@
          (setq current-prefix-arg '(16))
          (call-interactively 'ace-window)) "delete")
   ("w" ace-window "ace" :color blue)
+  ("C-w" ace-window "ace" :color blue)
   ("u" (lambda ()
          (interactive)
          (progn
@@ -27,7 +28,8 @@
 
 (general-def '(normal visual)
   ", ," 'execute-extended-command
-  ", w" 'hydra-window/body)
+  ", w" 'hydra-window/body
+  "C-w" 'hydra-window/body)
 
 (general-def 'normal
   ", v" 'er/expand-region

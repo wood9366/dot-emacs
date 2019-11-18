@@ -62,4 +62,15 @@
   :defer t
   :diminish "m")
 
+;; linum
+(use-package nlinum
+  :defer t
+  :config
+  (setq nlinum-highlight-current-line t)
+  (set-face-attribute 'linum nil
+                      :background (face-background 'default)
+                      :foreground "#6F6F6F")
+  (set-face-attribute 'nlinum-current-line nil
+                      :foreground "#FB8C1D"))
+
 (provide 'config-edit)

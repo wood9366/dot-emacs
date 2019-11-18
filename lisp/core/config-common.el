@@ -72,6 +72,7 @@
 
 ;; ace window
 (use-package ace-window
+  :ensure t
   :config
   (setq aw-keys '(?a ?s ?d ?f ?j ?k ?l))
   (set-face-attribute
@@ -80,6 +81,22 @@
    :weight 'bold
    :box nil
    :height 3.0))
+
+;; ibuffer
+(use-package ibuffer
+  :config
+  (fullframe ibuffer quit-window)
+  (evil-collection-ibuffer-setup)
+
+  (general-def 'normal ibuffer-mode-map
+    (kbd ",") nil
+    (kbd "o o") 'ibuffer-toggle-sorting-mode))
+
+;; info
+(evil-collection-info-setup)
+
+;; debugger
+(evil-collection-debug-setup)
 
 ;; ;; view big file
 ;; (defun wood9366/open-big-file-hook()
