@@ -27,26 +27,28 @@
   "C-w" 'backward-kill-word)
 
 (general-def '(normal visual)
-  ", ," 'execute-extended-command
-  ", w" 'hydra-window/body
+  ", ," '(execute-extended-command :wk "cmd")
+  ", w" '(hydra-window/body :wk "windows")
   "C-w" 'hydra-window/body)
 
 (general-def 'normal
-  ", v" 'er/expand-region
-  "g c" 'evil-avy-goto-word-1
-  "g o" 'xref-find-references
+  ", v" '(er/expand-region :wk "expand")
+  "g c" '(evil-avy-goto-word-1 :wk "jump word")
+  "g o" '(xref-find-references :wk "find ref")
   "g /" 'imenu)
 
 (general-def '(normal visual)
   :prefix ", p"
-  "p" 'counsel-projectile
-  "w" 'counsel-projectile-switch-project
-  "s" 'ly/counsel-projectile-search
-  "r" 'projectile-invalidate-cache)
+  "" '(nil :wk "project")
+  "p" '(counsel-projectile :wk "find")
+  "w" '(counsel-projectile-switch-project :wk "switch")
+  "s" '(ly/counsel-projectile-search :wk "search")
+  "r" '(projectile-invalidate-cache :wk "refresh cache"))
 
 ;; multiple cursor bind
 (general-def '(normal visual)
   :prefix ", m"
+  "" '(nil :wk "mc")
   "a" 'evil-mc-make-all-cursors
   "A" 'evil-mc-undo-all-cursors
   "p" 'evil-mc-pause-cursors
