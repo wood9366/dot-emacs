@@ -1,17 +1,31 @@
-(setq-default dired-dwim-target t)
 
 (use-package dired
   :config
-  (use-package diredfl
-    :ensure t
-    :init
-    (diredfl-global-mode))
+  (defun ly/dired-open-file-with-external-program ()
+    (interactive)
+    (shell-command (concat "open " (shell-quote-argument (dired-get-filename)))))
 
-  (require 'dired+)
-  (diredp-toggle-find-file-reuse-dir t)
-  
+  (setq-default dired-dwim-target t)
   (setq dired-recursive-deletes 'top)
-  (define-key dired-mode-map (kbd "C-c C-p") 'wdired-change-to-wdired-mode)
-  (define-key dired-mode-map (kbd "C-c C-c") 'revert-buffer))
+  (evil-set-initial-state 'dired-mode 'normal)
+  (evil-collection-dired-setup)
+
+  (put 'dired-find-alternate-file 'disabled nil)
+
+  (general-def 'normal dired-mode-map
+    [remap dired-find-file] 'dired-find-alternate-file
+    [remap dired-up-directory] (lambda () (interactive) (find-alternate-file ".."))
+    "C-<return>" 'ly/dired-open-file-with-external-program
+    "DEL" 'dired-up-directory
+    "C-c C-p" 'wdired-change-to-wdired-mode)
+
+  (add-hook 'dired-mode-hook
+            (lambda ()
+              (interactive)
+              (dired-hide-details-mode 1))))
+
+(use-package diredfl
+  :ensure t
+  :hook (dired-mode . diredfl-mode))
 
 (provide 'config-dired)
