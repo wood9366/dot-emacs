@@ -11,7 +11,7 @@
 
   (setq projectile-enable-caching t
         projectile-completion-system 'ivy
-        projectile-mode-line-prefix " p"
+        projectile-mode-line-prefix "p"
         projectile-mode-line-function 'ly/projectile-mode-line)
 
   (setq-default projectile--mode-line projectile-mode-line-prefix))
