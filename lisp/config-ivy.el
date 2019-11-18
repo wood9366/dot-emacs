@@ -12,16 +12,17 @@
   (ivy-dynamic-exhibit-delay-ms 150)
   (ivy-initial-inputs-alist '((man . "^")
                               (woman . "^")))
+  :defer t
   :config
-  (ivy-mode)
+  (ivy-mode 1)
 
   (general-def '(ivy-minibuffer-map ivy-switch-buffer-map)
     "C-j" 'ivy-next-line
     "C-n" 'ivy-next-line
     "C-k" 'ivy-previous-line
     "C-p" 'ivy-previous-line
-    "C-f" 'ivy-scroll-down-command
-    "C-b" 'ivy-scroll-up-command
+    "C-b" 'ivy-scroll-down-command
+    "C-f" 'ivy-scroll-up-command
     "TAB" 'ivy-partial-or-done
     "M-RET" 'ivy-done
     "RET" 'ivy-alt-done
@@ -30,55 +31,50 @@
   (evil-make-overriding-map ivy-occur-mode-map 'normal))
 
 (use-package ivy-historian
-  :requires ivy
+  :after ivy
   :ensure t
   :config
-  (ivy-historian-mode))
+  (ivy-historian-mode 1))
 
 (use-package ivy-xref
-  :requires ivy
   :ensure t
+  :defer t
   :custom
   (ivy-xref-use-file-path t)
-  :config
+  :init
   (setq xref-show-xrefs-function 'ivy-xref-show-xrefs))
 
 (use-package counsel
-  :requires ivy
   :ensure t
   :diminish
   :custom
   (counsel-mode-override-describe-bindings t)
   :config
-  (counsel-mode)
-
-  (defun ly/yank ()
-    (interactive)
-    (if (window-minibuffer-p)
-        (yank-pop)
-      (counsel-yank-pop)))
+  (counsel-mode 1)
 
   (general-def counsel-mode-map
-    "M-y" 'ly/yank)
-
-  (general-def 'normal counsel-mode-map
-    "g /" 'counsel-imenu))
+    [remap yank-pop] nil))
 
 (use-package swiper
-  :requires ivy
   :ensure t
-  :config
-  (defun ly/search ()
-    (interactive)
-    (if (window-minibuffer-p)
-        (let ((text))
-          (with-ivy-window
-            (setq text (thing-at-point 'symbol)))
-          (when text
-            (insert text)))
-      (swiper)))
+  :defer t)
 
-  (general-def ivy-mode-map
-    "C-s" 'ly/search))
+;; utils
+(defun ly/search ()
+  (interactive)
+  (if (window-minibuffer-p)
+      (let ((text))
+        (with-ivy-window
+          (setq text (thing-at-point 'symbol)))
+        (when text
+          (insert text)))
+    (swiper)))
+
+;; key-binding
+(general-def '(normal insert)
+  [remap yank-pop] 'counsel-yank-pop)
+
+(general-def
+  "C-s" 'ly/search)
 
 (provide 'config-ivy)
