@@ -66,6 +66,29 @@
                "N" '(global-nlinum-mode :wk "[line no]")
                "l" '(toggle-truncate-lines :wk "line wrap"))
 
+(general-create-definer ly/file-def
+  :prefix ", f")
+
+(ly/file-def '(normal visual)
+             "" '(nil :wk "file")
+             "f" '(find-file :wk "open file"))
+
+(general-create-definer ly/buffer-def
+  :prefix ", b")
+
+(ly/buffer-def '(normal visual)
+               "" '(nil :wk "buffer")
+               "b" '(switch-to-buffer :wk "open buffer")
+               "o" '(switch-to-buffer-other-window :wk "open buffer in others")
+               "x" '(kill-this-buffer :wk "kill buffer"))
+
+(general-create-definer ly/quit-def
+  :prefix ", q")
+
+(ly/quit-def '(normal visual)
+             "" '(nil :wk "quit")
+             "q" '(save-buffers-kill-terminal :wk "exit"))
+ 
 ;; multiple cursor bind
 (general-def '(normal visual)
   :prefix ", m"
@@ -87,43 +110,5 @@
   "N" 'evil-mc-skip-and-goto-next-match
   "p" 'evil-mc-make-and-goto-prev-match
   "P" 'evil-mc-skip-and-goto-prev-match)
-
-;; (defconst liyang/file-prefix "f")
-;; (defconst liyang/quit-prefix "q")
-;; (defconst liyang/toggle-prefix "t")
-;; (defconst liyang/tool-prefix "x")
-;; (defconst liyang/buffer-prefix "b")
-;; (defconst liyang/window-prefix "w")
-
-;; (defun liyang/bind-key()
-;;   (evil-leader/set-key "," 'execute-extended-command)
-
-;;   (evil-leader/set-key liyang/quit-prefix '("quit"))
-;;   (evil-leader/set-key (concat liyang/quit-prefix "q")
-;;     '("exit" . save-buffers-kill-terminal))
-
-;;   (evil-leader/set-key liyang/toggle-prefix '("toggle"))
-;;   (evil-leader/set-key (concat liyang/toggle-prefix "f")
-;;     '("flycheck" . global-flycheck-mode))
-;;   (evil-leader/set-key (concat liyang/toggle-prefix "c")
-;;     '("column 80" . column-enforce-mode))
-;;   (evil-leader/set-key (concat liyang/toggle-prefix "l")
-;;     '("line wrap" . toggle-truncate-lines))
-;;   (evil-leader/set-key (concat liyang/toggle-prefix "n")
-;;     '("line number" . global-nlinum-mode))
-
-;;   (evil-leader/set-key liyang/file-prefix '("file"))
-;;   (evil-leader/set-key (concat liyang/file-prefix "f")
-;;     '("find file" . counsel-find-file))
-
-;;   (evil-leader/set-key liyang/buffer-prefix '("buffer"))
-;;   (evil-leader/set-key (concat liyang/buffer-prefix "b")
-;;     '("switch buffer" . ivy-switch-buffer))
-;;   (evil-leader/set-key (concat liyang/buffer-prefix "x") 'ibuffer)
-
-;;   (evil-leader/set-key (concat liyang/buffer-prefix "d") 'kill-this-buffer)
-;;   )
-
-;; (add-hook 'after-init-hook 'liyang/bind-key)
 
 (provide 'key-bind)
