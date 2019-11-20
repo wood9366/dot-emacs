@@ -5,4 +5,4 @@
 (defconst _gui_ (memq window-system '(mac ns x)))
 (defconst _term_ (not window-system))
 
-(provide 'vars)
+(provide 'core-vars)

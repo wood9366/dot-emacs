@@ -5,7 +5,7 @@
 
 (require 'config-benchmarking)
 
-(require 'vars)
+(require 'core-vars)
 
 ;; package
 (require 'config-custom-file)
@@ -56,6 +56,6 @@
 (require 'config-dired)
 (require 'config-projectile)
 
-(require 'key-bind)
+(require 'core-key-bind)
 
 (provide 'core)
