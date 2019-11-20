@@ -89,4 +89,9 @@
   (yas-reload-all)
   (add-hook 'prog-mode-hook #'yas-minor-mode))
 
+;; comment
+(use-package evil-nerd-commenter
+  :ensure t
+  :defer t)
+
 (provide 'config-edit)

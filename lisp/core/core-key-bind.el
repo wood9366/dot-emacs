@@ -23,6 +23,7 @@
 
 (general-def
   "M-/" 'hippie-expand
+  "M-;" 'evilnc-comment-or-uncomment-lines
   "C-c C-m" 'execute-extended-command
   "C-w" 'backward-kill-word)
 
