@@ -31,6 +31,7 @@
 ;; environment
 (require 'config-utf8)
 (require 'config-exec-path)
+(require 'config-sessions)
 (require 'config-osx)
 
 (require 'config-evil)
@@ -54,7 +55,6 @@
 ;; utilities
 (require 'config-dired)
 (require 'config-projectile)
-;; (require 'config-sessions)
 
 (require 'key-bind)
 
