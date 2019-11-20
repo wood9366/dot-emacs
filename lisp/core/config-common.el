@@ -105,6 +105,11 @@
 ;; debugger
 (evil-collection-debug-setup)
 
+;; tablist
+(use-package tablist
+  :ensure t
+  :defer t)
+
 ;; ;; view big file
 ;; (defun wood9366/open-big-file-hook()
 ;;   (when (> (buffer-size) (* 1024 1024))

@@ -9,22 +9,21 @@ LOAD-DURATION is the time taken in milliseconds to load FEATURE.")
 (defadvice require (around sanityinc/build-require-times (feature &optional filename noerror) activate)
   "Note in `sanityinc/require-times' the time taken to require each feature."
   (let* ((already-loaded (memq feature features))
-         (require-start-time (and (not already-loaded) (current-time))))
+	 (require-start-time (and (not already-loaded) (current-time))))
     (prog1
-        ad-do-it
+	ad-do-it
       (when (and (not already-loaded) (memq feature features))
-        (let ((time (sanityinc/time-subtract-millis (current-time) require-start-time)))
-          (add-to-list 'sanityinc/require-times
-                       (list feature require-start-time time)
-                       t))))))
+	(let ((time (sanityinc/time-subtract-millis (current-time) require-start-time)))
+	  (add-to-list 'sanityinc/require-times
+		       (list feature require-start-time time)
+		       t))))))
 
-
 (define-derived-mode sanityinc/require-times-mode tabulated-list-mode "Require-Times"
   "Show times taken to `require' packages."
   (setq tabulated-list-format
-        [("Start time (ms)" 20 sanityinc/require-times-sort-by-start-time-pred)
-         ("Feature" 30 t)
-         ("Time (ms)" 12 sanityinc/require-times-sort-by-load-time-pred)])
+	[("Start time (ms)" 20 sanityinc/require-times-sort-by-start-time-pred)
+	 ("Feature" 30 t)
+	 ("Time (ms)" 12 sanityinc/require-times-sort-by-load-time-pred)])
   (setq tabulated-list-sort-key (cons "Start time (ms)" nil))
   ;; (setq tabulated-list-padding 2)
   (setq tabulated-list-entries #'sanityinc/require-times-tabulated-list-entries)
@@ -41,13 +40,13 @@ LOAD-DURATION is the time taken in milliseconds to load FEATURE.")
 
 (defun sanityinc/require-times-tabulated-list-entries ()
   (cl-loop for (feature start-time millis) in sanityinc/require-times
-           with order = 0
-           do (incf order)
-           collect (list order
-                         (vector
-                          (format "%.3f" (sanityinc/time-subtract-millis start-time before-init-time))
-                          (symbol-name feature)
-                          (format "%.3f" millis)))))
+	   with order = 0
+	   do (cl-incf order)
+	   collect (list order
+			 (vector
+			  (format "%.3f" (sanityinc/time-subtract-millis start-time before-init-time))
+			  (symbol-name feature)
+			  (format "%.3f" millis)))))
 
 (defun sanityinc/require-times ()
   "Show a tabular view of how long various libraries took to load."
@@ -57,14 +56,10 @@ LOAD-DURATION is the time taken in milliseconds to load FEATURE.")
     (tabulated-list-revert)
     (display-buffer (current-buffer))))
 
-
-
-
 (defun sanityinc/show-init-time ()
   (message "init completed in %.2fms"
-           (sanityinc/time-subtract-millis after-init-time before-init-time)))
+	   (sanityinc/time-subtract-millis after-init-time before-init-time)))
 
 (add-hook 'after-init-hook 'sanityinc/show-init-time)
-
 
 (provide 'config-benchmarking)
