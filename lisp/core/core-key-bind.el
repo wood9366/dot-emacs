@@ -84,9 +84,11 @@
 
 (ly/buffer-def '(normal visual)
                "" '(nil :wk "buffer")
-               "b" '(switch-to-buffer :wk "open buffer")
-               "o" '(switch-to-buffer-other-window :wk "open buffer in others")
-               "d" '(kill-this-buffer :wk "kill buffer"))
+               "b" '(switch-to-buffer :wk "open")
+               "o" '(switch-to-buffer-other-window :wk "open in others")
+               "r" '(revert-buffer "revert")
+               "s" '(save-buffer "save")
+               "d" '(kill-this-buffer :wk "close"))
 
 ;; quit
 (general-create-definer ly/quit-def
