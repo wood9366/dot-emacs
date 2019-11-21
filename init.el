@@ -16,13 +16,10 @@
 
 (require 'core)
 
-;; (require 'config-magit)
+(require 'git)
 
 ;; (require 'config-org)
 ;; (require 'config-reveal)
-
-;; (require 'config-lang-base)
-;; (require 'config-flycheck)
 
 ;; (require 'config-proto)
 ;; (require 'config-markdown)
