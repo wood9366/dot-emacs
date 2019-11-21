@@ -86,7 +86,7 @@
                "" '(nil :wk "buffer")
                "b" '(switch-to-buffer :wk "open buffer")
                "o" '(switch-to-buffer-other-window :wk "open buffer in others")
-               "x" '(kill-this-buffer :wk "kill buffer"))
+               "d" '(kill-this-buffer :wk "kill buffer"))
 
 ;; quit
 (general-create-definer ly/quit-def
