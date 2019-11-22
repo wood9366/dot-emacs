@@ -19,10 +19,10 @@
 (require 'ly-git)
 (require 'ly-org)
 
-;; (require 'config-proto)
-;; (require 'config-markdown)
-;; (require 'config-plantuml)
-;; (require 'config-cmake)
+(require 'ly-cmake)
+(require 'ly-proto)
+(require 'ly-markdown)
+(require 'ly-plantuml)
 
 ;; (require 'config-lisp)
 ;; (require 'config-perl)
