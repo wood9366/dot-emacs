@@ -5,7 +5,7 @@
 
 (require 'config-benchmarking)
 
-(require 'core-vars)
+(require 'ly-core-vars)
 
 ;; package
 (require 'config-custom-file)
@@ -56,6 +56,6 @@
 (require 'config-dired)
 (require 'config-projectile)
 
-(require 'core-key-bind)
+(require 'ly-core-key-bind)
 
-(provide 'core)
+(provide 'ly-core)

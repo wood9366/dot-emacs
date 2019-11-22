@@ -12,14 +12,12 @@
 (when (< emacs-major-version 26)
   (error "Your emacs is too old -- this config requires v26 of higher"))
 
-(load-file (expand-file-name "lisp/core/config-load-path.el" user-emacs-directory))
+(load-file (expand-file-name "lisp/core/ly-core-load-path.el" user-emacs-directory))
 
-(require 'core)
+(require 'ly-core)
 
-(require 'git)
-
-;; (require 'config-org)
-;; (require 'config-reveal)
+(require 'ly-git)
+(require 'ly-org)
 
 ;; (require 'config-proto)
 ;; (require 'config-markdown)

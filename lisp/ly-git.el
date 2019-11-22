@@ -12,4 +12,4 @@
   :ensure t
   :after (evil magit))
 
-(provide 'git)
+(provide 'ly-git)

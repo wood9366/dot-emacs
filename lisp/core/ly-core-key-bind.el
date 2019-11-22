@@ -131,4 +131,4 @@
   "p" 'evil-mc-make-and-goto-prev-match
   "P" 'evil-mc-skip-and-goto-prev-match)
 
-(provide 'core-key-bind)
+(provide 'ly-core-key-bind)
