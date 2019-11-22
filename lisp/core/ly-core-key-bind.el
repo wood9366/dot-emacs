@@ -98,6 +98,16 @@
              "" '(nil :wk "quit")
              "q" '(save-buffers-kill-terminal :wk "exit"))
 
+;; major mode
+(general-create-definer ly/mode-def
+  :prefix "SPC")
+
+(general-def
+  "SPC" 'nil)
+
+(general-def '(normal motion)
+  "SPC" 'nil)
+
 ;; yasnippet
 (general-create-definer ly/yasnippet-def
   :prefix ", y")

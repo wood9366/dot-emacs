@@ -1,3 +1,4 @@
+
 (use-package cperl-mode
   :mode "\\.\\([pP][Llm]\\|al\\|t\\)\\'"
   :interpreter "perl"
@@ -5,7 +6,6 @@
   :interpreter "miniperl"
   :config
   (setq cperl-invalid-face nil)
-  ;; (setq cperl-hairy t)
 
   (setq cperl-indent-level 4
         cperl-close-paren-offset -4
@@ -19,19 +19,21 @@
          (> (current-column) cperl-continued-statement-offset)
          (backward-char cperl-continued-statement-offset)))
 
-  (defun liyang/perl-test ()
+  (defun ly/perl-test ()
     "run perl test"
     (interactive)
-    (shell-command (format "cd %s && prove -l" (locate-dominating-file (buffer-file-name) ".git")
-                           (get-buffer-create "perl-output"))))
+    (shell-command (format "cd %s && prove -l"
+                           (locate-dominating-file (buffer-file-name) ".git"))
+                   (get-buffer-create "perl-output")))
 
-  (evil-leader/set-key-for-mode 'cperl-mode "ct" 'liyang/perl-test)
+  (defun ly/perl-run ()
+    "run perl script"
+    (interactive)
+    (shell-command (format "perl %s" (buffer-file-name))
+                   (get-buffer-create "perl-output")))
 
-  (defun liyang/perl-run ()
-      "run perl script"
-      (interactive)
-      (shell-command (format "perl %s" (buffer-file-name)) (get-buffer-create "perl-output")))
+  (ly/mode-def
+   "r" 'ly/perl-run
+   "t" 'ly/perl-test))
 
-  (evil-leader/set-key-for-mode 'cperl-mode "cr" 'liyang/perl-run))
-  
-(provide 'config-perl)
+(provide 'ly-perl)

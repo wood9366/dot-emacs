@@ -24,8 +24,9 @@
 (require 'ly-markdown)
 (require 'ly-plantuml)
 
+(require 'ly-perl)
+
 ;; (require 'config-lisp)
-;; (require 'config-perl)
 ;; (require 'config-cpp)
 ;; (require 'config-csharp)
 ;; (require 'config-lua)
