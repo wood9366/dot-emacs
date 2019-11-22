@@ -25,12 +25,12 @@
 (require 'ly-plantuml)
 
 (require 'ly-perl)
+(require 'ly-shader)
 
 ;; (require 'config-lisp)
 ;; (require 'config-cpp)
 ;; (require 'config-csharp)
 ;; (require 'config-lua)
-;; (require 'config-shader)
 ;; (require 'config-web)
 ;; (require 'config-java)
 ;; (require 'config-python)
