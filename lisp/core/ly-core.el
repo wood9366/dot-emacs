@@ -8,11 +8,11 @@
 (require 'ly-core-vars)
 
 ;; package
-(require 'config-custom-file)
-(require 'config-local)
-
 (require 'config-elpa)
 (require 'config-site-lisp)
+
+(require 'config-custom-file)
+(require 'config-local)
 
 (require-package 'use-package)
 
