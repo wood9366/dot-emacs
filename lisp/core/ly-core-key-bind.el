@@ -86,8 +86,8 @@
                "" '(nil :wk "buffer")
                "b" '(switch-to-buffer :wk "open")
                "o" '(switch-to-buffer-other-window :wk "open in others")
-               "r" '(revert-buffer "revert")
-               "s" '(save-buffer "save")
+               "r" '(revert-buffer :wk "revert")
+               "s" '(save-buffer :wk "save")
                "d" '(kill-this-buffer :wk "close"))
 
 ;; quit
@@ -102,10 +102,7 @@
 (general-create-definer ly/mode-def
   :prefix "SPC")
 
-(general-def
-  "SPC" 'nil)
-
-(general-def '(normal motion)
+(general-def 'normal
   "SPC" 'nil)
 
 ;; yasnippet
