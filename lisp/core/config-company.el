@@ -7,13 +7,13 @@
 
   (setq company-idle-delay nil)
 
-  (general-def 'insert company-mode-map
+  (general-def company-mode-map
     "C-/" 'company-complete
     "C-_" 'company-complete
     "C-x C-f" 'company-files
     "C-x C-x" 'company-yasnippet)
 
-  (general-def nil company-active-map
+  (general-def company-active-map
     "C-j" 'company-select-next
     "C-n" 'company-select-next
     "C-/" 'company-select-next
