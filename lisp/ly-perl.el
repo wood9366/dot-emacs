@@ -32,7 +32,7 @@
     (shell-command (format "perl %s" (buffer-file-name))
                    (get-buffer-create "perl-output")))
 
-  (ly/mode-def
+  (ly/mode-def 'normal
    "r" 'ly/perl-run
    "t" 'ly/perl-test))
 
