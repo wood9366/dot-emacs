@@ -34,9 +34,10 @@
 
 (general-def 'normal
   ", v" '(er/expand-region :wk "expand")
-  "g c" '(evil-avy-goto-word-1 :wk "jump word")
-  "g o" '(xref-find-references :wk "find ref")
-  "g /" 'imenu)
+  "g c" '(evil-avy-goto-word-1 :wk "jump to word")
+  "g s" '(imenu :wk "jump to symbol")
+  "g ." '(xref-find-definitions :wk "find definitions")
+  "g /" '(xref-find-references :wk "find references"))
 
 ;; project
 (general-create-definer ly/project-def
