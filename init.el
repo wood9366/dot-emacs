@@ -26,6 +26,7 @@
 
 (require 'ly-perl)
 (require 'ly-shader)
+(require 'ly-csharp)
 
 ;; (require 'config-lisp)
 ;; (require 'config-cpp)
