@@ -27,6 +27,10 @@
   "C-c C-m" 'execute-extended-command
   "C-w" 'backward-kill-word)
 
+(general-def 'normal
+  [remap undo] 'undo-tree-undo
+  [remap redo] 'undo-tree-redo)
+
 (general-def '(normal visual)
   ", ," '(execute-extended-command :wk "cmd")
   ", w" '(hydra-window/body :wk "windows")
@@ -56,7 +60,8 @@
 
 (ly/tool-def '(normal visual)
   "" '(nil :wk "tool")
-  "b" 'ibuffer)
+  "b" 'ibuffer
+  "u" 'undo-tree-visualize)
 
 ;; toggle
 (general-create-definer ly/toggle-def
