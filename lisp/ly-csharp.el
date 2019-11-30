@@ -41,8 +41,8 @@
 
   (evil-make-overriding-map omnisharp-mode-map 'normal)
   (general-def 'normal omnisharp-mode-map
-    "g ." 'omnisharp-go-to-definition
-    "g /" 'omnisharp-ivy-find-usage))
+    [remap xref-find-definitions] 'omnisharp-go-to-definition
+    [remap xref-find-references] 'omnisharp-ivy-find-usage))
 
 ;; (use-package lsp-mode
 ;;   :ensure t
