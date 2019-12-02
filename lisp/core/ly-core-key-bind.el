@@ -1,58 +1,65 @@
 
-(defhydra hydra-window (:color red :timeout 0.7)
-  " window"
-  ("h" evil-window-left "left")
-  ("l" evil-window-right "right")
-  ("k" evil-window-up "up")
-  ("j" evil-window-down "down")
-  ("s" evil-window-split "split horizontal")
-  ("v" evil-window-vsplit "split vertical")
-  ("c" evil-window-delete "close")
-  ("o" (lambda () (interactive) (delete-other-windows)) "maximum")
-  ("x" (lambda () (interactive)
-         (setq current-prefix-arg '(16))
-         (call-interactively 'ace-window)) "delete")
-  ("w" ace-window "ace" :color blue)
-  ("C-w" ace-window "ace" :color blue)
-  ("u" (lambda ()
-         (interactive)
-         (progn
-           (winner-undo)
-           (setq this-command 'winner-undo))) "undo")
-  ("r" winner-redo "redo"))
-
 (general-def
   "M-/" 'hippie-expand
   "M-;" 'evilnc-comment-or-uncomment-lines
   "C-c C-m" 'execute-extended-command
   "C-w" 'backward-kill-word)
 
+(general-def '(normal visual)
+  ", ," '(execute-extended-command :wk "cmd"))
+
 (general-def 'normal
   [remap undo] 'undo-tree-undo
-  [remap redo] 'undo-tree-redo)
-
-(general-def '(normal visual)
-  ", ," '(execute-extended-command :wk "cmd")
-  ", w" '(hydra-window/body :wk "windows")
-  "C-w" 'hydra-window/body)
-
-(general-def 'normal
+  [remap redo] 'undo-tree-redo
   ", v" '(er/expand-region :wk "expand")
   "g c" '(evil-avy-goto-word-1 :wk "jump to word")
   "g s" '(imenu :wk "jump to symbol")
   "g ." '(xref-find-definitions :wk "find definitions")
   "g /" '(xref-find-references :wk "find references"))
 
+;; window
+(general-create-definer ly/window-def
+  :prefix ", w")
+
+(defun ly/delete-other-window ()
+  (interactive)
+  (delete-other-windows))
+
+(defun ly/ace-close-window ()
+  (interactive)
+  (setq current-prefix-arg '(16))
+  (call-interactively 'ace-window))
+
+(defun ly/undo-win ()
+  (interactive)
+  (winner-undo)
+  (setq this-command 'winner-undo))
+
+(ly/window-def '(normal)
+  "" '(nil :wk "window")
+  "h" '(evil-window-left :wk "left")
+  "l" '(evil-window-right :wk "right")
+  "k" '(evil-window-up :wk "up")
+  "j" '(evil-window-down :wk "down")
+  "s" '(evil-window-split :wk "split horizontal")
+  "v" '(evil-window-vsplit :wk "split vertical")
+  "c" '(evil-window-delete :wk "close")
+  "o" '(ly/delete-other-window :wk "maximum")
+  "x" '(ly/ace-close-window :wk "ace close")
+  "w" '(ace-window :wk "ace open")
+  "u" '(ly/undo-win :wk "undo")
+  "r" '(winner-redo :wk "redo"))
+
 ;; project
 (general-create-definer ly/project-def
   :prefix ", p")
 
 (ly/project-def '(normal visual)
-                "" '(nil :wk "project")
-                "p" '(counsel-projectile :wk "find")
-                "w" '(counsel-projectile-switch-project :wk "switch")
-                "s" '(ly/counsel-projectile-search :wk "search")
-                "r" '(projectile-invalidate-cache :wk "refresh cache"))
+  "" '(nil :wk "project")
+  "p" '(counsel-projectile :wk "find")
+  "w" '(counsel-projectile-switch-project :wk "switch")
+  "s" '(ly/counsel-projectile-search :wk "search")
+  "r" '(projectile-invalidate-cache :wk "refresh cache"))
 
 ;; tools
 (general-create-definer ly/tool-def
@@ -68,41 +75,41 @@
   :prefix ", t")
 
 (ly/toggle-def '(normal visual)
-               "" '(nil :wk "toggle")
-               "(" '(rainbow-delimiters-mode :wk "rainbow paren")
-               "f" '(flycheck-mode :wk "flycheck")
-               "F" '(global-flycheck-mode :wk "[flycheck]")
-               "n" '(nlinum-mode :wk "line no")
-               "N" '(global-nlinum-mode :wk "[line no]")
-               "l" '(toggle-truncate-lines :wk "line wrap"))
+  "" '(nil :wk "toggle")
+  "(" '(rainbow-delimiters-mode :wk "rainbow paren")
+  "f" '(flycheck-mode :wk "flycheck")
+  "F" '(global-flycheck-mode :wk "[flycheck]")
+  "n" '(nlinum-mode :wk "line no")
+  "N" '(global-nlinum-mode :wk "[line no]")
+  "l" '(toggle-truncate-lines :wk "line wrap"))
 
 ;; file
 (general-create-definer ly/file-def
   :prefix ", f")
 
 (ly/file-def '(normal visual)
-             "" '(nil :wk "file")
-             "f" '(find-file :wk "open file"))
+  "" '(nil :wk "file")
+  "f" '(find-file :wk "open file"))
 
 ;; buffer
 (general-create-definer ly/buffer-def
   :prefix ", b")
 
 (ly/buffer-def '(normal visual)
-               "" '(nil :wk "buffer")
-               "b" '(switch-to-buffer :wk "open")
-               "o" '(switch-to-buffer-other-window :wk "open in others")
-               "r" '(revert-buffer :wk "revert")
-               "s" '(save-buffer :wk "save")
-               "d" '(kill-this-buffer :wk "close"))
+  "" '(nil :wk "buffer")
+  "b" '(switch-to-buffer :wk "open")
+  "o" '(switch-to-buffer-other-window :wk "open in others")
+  "r" '(revert-buffer :wk "revert")
+  "s" '(save-buffer :wk "save")
+  "d" '(kill-this-buffer :wk "close"))
 
 ;; quit
 (general-create-definer ly/quit-def
   :prefix ", q")
 
 (ly/quit-def '(normal visual)
-             "" '(nil :wk "quit")
-             "q" '(save-buffers-kill-terminal :wk "exit"))
+  "" '(nil :wk "quit")
+  "q" '(save-buffers-kill-terminal :wk "exit"))
 
 ;; major mode
 (general-create-definer ly/mode-def
@@ -116,12 +123,12 @@
   :prefix ", y")
 
 (ly/yasnippet-def '(normal visual)
-                  "" '(nil :wk "yas")
-                  "r" '(yas-reload-all :wk "reload")
-                  "i" '(yas-insert-snippet :wk "insert")
-                  "y" '(yas-visit-snippet-file :wk "open")
-                  "n" '(yas-new-snippet :wk "new"))
- 
+  "" '(nil :wk "yas")
+  "r" '(yas-reload-all :wk "reload")
+  "i" '(yas-insert-snippet :wk "insert")
+  "y" '(yas-visit-snippet-file :wk "open")
+  "n" '(yas-new-snippet :wk "new"))
+
 ;; multiple cursor bind
 (general-def '(normal visual)
   :prefix ", m"
