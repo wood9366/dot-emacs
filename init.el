@@ -24,9 +24,13 @@
 (require 'ly-markdown)
 (require 'ly-plantuml)
 
+(require 'ly-lsp)
+
 (require 'ly-perl)
 (require 'ly-shader)
 (require 'ly-csharp)
+(require 'ly-vue)
+(require 'ly-js)
 
 ;; (require 'config-lisp)
 ;; (require 'config-cpp)
