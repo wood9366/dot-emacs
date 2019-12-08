@@ -55,6 +55,7 @@
 ;; utilities
 (require 'config-dired)
 (require 'config-projectile)
+(require 'config-flycheck)
 
 (require 'ly-core-key-bind)
 
