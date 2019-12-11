@@ -31,6 +31,7 @@
 (require 'ly-csharp)
 (require 'ly-vue)
 (require 'ly-js)
+(require 'ly-json)
 
 ;; (require 'config-lisp)
 ;; (require 'config-cpp)
