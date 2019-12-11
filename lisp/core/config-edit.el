@@ -3,8 +3,8 @@
 (setq case-fold-search t) 
 
 ;; tab
-(setq indent-tabs-mode nil ;; replace tab with space
-      tab-width 4) 
+(setq-default indent-tabs-mode nil ;; replace tab with space
+              tab-width 4) 
 
 ;; (use-package subword
 ;;   :diminish subword-mode
