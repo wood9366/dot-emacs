@@ -21,7 +21,7 @@
   :requires evil
   :ensure t
   :config
-  (evil-surround-mode))
+  (global-evil-surround-mode))
 
 (use-package evil-collection
   :requires evil
