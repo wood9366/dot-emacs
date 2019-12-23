@@ -7,7 +7,7 @@
 ;; export org to reveal
 (use-package ox-reveal
   :ensure t
-  :hook org-mode
+  :after org-mode
   :config
   (setq org-reveal-root (concat "file://"
                                 (expand-file-name (concat user-emacs-directory
