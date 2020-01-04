@@ -130,25 +130,28 @@
   "n" '(yas-new-snippet :wk "new"))
 
 ;; multiple cursor bind
-(general-def '(normal visual)
-  :prefix ", m"
-  "" '(nil :wk "mc")
-  "a" 'evil-mc-make-all-cursors
-  "A" 'evil-mc-undo-all-cursors
-  "p" 'evil-mc-pause-cursors
-  "P" 'evil-mc-resume-cursors
-  "f" 'evil-mc-make-and-goto-first-cursor
-  "l" 'evil-mc-make-and-goto-last-cursor
-  "c" 'evil-mc-make-cursor-here
-  "," 'evil-mc-make-cursor-move-next-line
-  "." 'evil-mc-make-cursor-move-prev-line
-  "j" 'evil-mc-make-and-goto-next-cursor
-  "J" 'evil-mc-skip-and-goto-next-cursor
-  "k" 'evil-mc-make-and-goto-prev-cursor
-  "K" 'evil-mc-skip-and-goto-prev-cursor
-  "n" 'evil-mc-make-and-goto-next-match
-  "N" 'evil-mc-skip-and-goto-next-match
-  "p" 'evil-mc-make-and-goto-prev-match
-  "P" 'evil-mc-skip-and-goto-prev-match)
+(defhydra hydra-mc (:color pink)
+  "mc"
+  ("m" evil-mc-undo-all-cursors :color blue)
+  ("q" nil :color blue)
+  ("a" evil-mc-make-all-cursors)
+  ("x" evil-mc-undo-all-cursors)
+  ;; ("s" evil-mc-pause-cursors)
+  ;; ("r" evil-mc-resume-cursors)
+  ;; ("^" evil-mc-make-and-goto-first-cursor)
+  ;; ("$" evil-mc-make-and-goto-last-cursor)
+  ("SPC" evil-mc-make-cursor-here)
+  ("j" evil-mc-make-cursor-move-next-line)
+  ("k" evil-mc-make-cursor-move-prev-line)
+  ;; ("C-n" evil-mc-make-and-goto-next-cursor)
+  ;; ("C-N" evil-mc-skip-and-goto-next-cursor)
+  ;; ("C-p" evil-mc-make-and-goto-prev-cursor)
+  ;; ("C-P" evil-mc-skip-and-goto-prev-cursor)
+  ("n" evil-mc-make-and-goto-next-match)
+  ("N" evil-mc-skip-and-goto-next-match)
+  ("p" evil-mc-make-and-goto-prev-match)
+  ("P" evil-mc-skip-and-goto-prev-match))
+
+(general-def '(normal visual) ", m" 'hydra-mc/body)
 
 (provide 'ly-core-key-bind)
