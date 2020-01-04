@@ -27,6 +27,15 @@
 (setq org-default-notes-file "~/note/_scratch.org")
 (setq org-agenda-files '("~/note"))
 
+(defun wood9366/add-to-agenda-files-recursively (dir)
+  (when (file-attribute-type (file-attributes dir))
+    (add-to-list 'org-agenda-files dir)
+    (dolist (x (seq-filter (lambda (path) (file-attribute-type (file-attributes path)))
+                           (directory-files-recursively dir ".*" t)))
+      (add-to-list 'org-agenda-files x t))))
+
+(wood9366/add-to-agenda-files-recursively "~/Dropbox/note/")
+
 (general-create-definer ly/org-def
   :prefix ", c")
 
