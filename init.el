@@ -26,6 +26,7 @@
 
 (require 'ly-lsp)
 
+(require 'ly-lua)
 (require 'ly-perl)
 (require 'ly-shader)
 (require 'ly-csharp)
