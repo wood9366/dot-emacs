@@ -66,6 +66,7 @@
 
   (setq which-key-enable-extended-define-key t
         which-key-idle-delay 0.5
+        which-key-echo-keystrokes 0.1
         which-key-popup-type 'minibuffer))
 
 ;; ediff
