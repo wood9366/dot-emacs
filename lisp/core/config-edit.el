@@ -94,4 +94,10 @@
   :ensure t
   :defer t)
 
+;; fold
+(use-package origami
+  :ensure t
+  :config
+  (add-hook 'prog-mode-hook #'origami-mode))
+
 (provide 'config-edit)
