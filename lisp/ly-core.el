@@ -1,7 +1,6 @@
 
-(add-to-list 'load-path
-             (expand-file-name "core"
-                               (file-name-directory load-file-name)))
+(add-to-list 'load-path (expand-file-name "core"
+                                          (file-name-directory (ly/current-elisp-path))))
 
 (require 'config-benchmarking)
 

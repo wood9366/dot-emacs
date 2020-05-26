@@ -12,8 +12,9 @@
 (when (< emacs-major-version 26)
   (error "Your emacs is too old -- this config requires v26 of higher"))
 
-(load-file (expand-file-name "lisp/core/ly-core-load-path.el" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
+(require 'ly-util)
 (require 'ly-core)
 
 (require 'ly-git)
