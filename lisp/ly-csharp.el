@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t -*-
 
 (use-package csharp-mode
   :ensure t
@@ -12,7 +13,7 @@
 	      (omnisharp-mode 1)
 	      (add-to-list (make-local-variable 'company-backends) 'company-omnisharp)))
   :config
-  (setq omnisharp-server-executable-path "/Users/liyang/packs/omnisharp/1.34.8/run")
+  (setq omnisharp-server-executable-path "/usr/local/bin/omnisharp")
 
   (defun omnisharp--ivy-usage-transform-candidate (candidate)
     "Convert a quickfix entry into helm output"
@@ -42,7 +43,14 @@
   (evil-make-overriding-map omnisharp-mode-map 'normal)
   (general-def 'normal omnisharp-mode-map
     [remap xref-find-definitions] 'omnisharp-go-to-definition
-    [remap xref-find-references] 'omnisharp-ivy-find-usage))
+    [remap xref-find-references] 'omnisharp-ivy-find-usage)
+
+  (general-def 'normal omnisharp-mode-map
+    :prefix "SPC"
+    "r" 'omnisharp-rename
+    "c" 'omnisharp-run-code-action-refactoring
+    "f" 'omnisharp-fix-usings)
+  )
 
 ;; (use-package lsp-mode
 ;;   :ensure t
@@ -57,5 +65,23 @@
 ;;   (setq company-lsp-cache-candidates 'auto
 ;; 	company-lsp-enable-snippet t
 ;; 	company-lsp-async nil))
+
+(defun origami-csharp-region-parser (create)
+  (lambda (content)
+    (let ((positions (origami-get-positions content "#region\\|#endregion")))
+      (origami-build-pair-tree create "#region" "#endregion" positions))))
+ 
+(defun origami-csharp-parser (create)
+  (let ((c-style (origami-c-style-parser create))
+        (region (origami-csharp-region-parser create)))
+    (lambda (content)
+      (origami-fold-children
+       (origami-fold-shallow-merge
+        (origami-fold-root-node (funcall c-style content))
+        (origami-fold-root-node (funcall region content)))))))
+
+;; (setq origami-parser-alist (assoc-delete-all 'csharp-mode origami-parser-alist))
+(add-to-list 'origami-parser-alist
+             '(csharp-mode . origami-csharp-parser))
 
 (provide 'ly-csharp)
