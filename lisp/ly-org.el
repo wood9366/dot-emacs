@@ -7,7 +7,7 @@
 ;; export org to reveal
 (use-package ox-reveal
   :ensure t
-  :after org-mode
+  :after org
   :config
   (setq org-reveal-root (concat "file://"
                                 (expand-file-name (concat user-emacs-directory
@@ -16,25 +16,30 @@
 ;; auto refresh preview picture after change babel
 (add-hook 'org-babel-after-execute-hook 'org-redisplay-inline-images)
 
-(setq org-capture-templates
-      '(("t" "todo" entry (file "~/note/_gtd.org")
-         "* TODO %?\n:PROPERTIES:\n:CREATED: %T\n:END:\n")
-        ("n" "note" entry (file+datetree "~/note/note.org")
-         "* %? %^G\n%T\n")
-        ("c" "scratch" entry (file "")
-         "* %T %?\n")))
+(use-package org
+  :defer t
+  :config
+  (setq org-capture-templates
+        '(("t" "todo" entry (file "~/QQCloud/note/_gtd.org")
+           "* TODO %?\n:PROPERTIES:\n:CREATED: %T\n:END:\n")
+          ("p" "plan" entry (file "~/QQCloud/note/plan.org")
+           "* TODO Tasks %<%Y-%m-%d> [/]")
+          ("n" "note" entry (file+datetree "~/QQCloud/note/note.org")
+           "* %? %^G\n%T\n")
+          ("c" "scratch" entry (file "")
+           "* %T %?\n")))
 
-(setq org-default-notes-file "~/note/_scratch.org")
-(setq org-agenda-files '("~/note"))
+  (setq org-default-notes-file "~/QQCloud/note/_scratch.org")
+  (setq org-agenda-files '("~/QQCloud/note"))
 
-(defun wood9366/add-to-agenda-files-recursively (dir)
-  (when (file-attribute-type (file-attributes dir))
-    (add-to-list 'org-agenda-files dir)
-    (dolist (x (seq-filter (lambda (path) (file-attribute-type (file-attributes path)))
-                           (directory-files-recursively dir ".*" t)))
-      (add-to-list 'org-agenda-files x t))))
+  ;; (defun wood9366/refresh-agenda-files ()
+  ;;   (interactive)
+  ;;   (dolist (dir wood9366/org-agenda-dirs)
+  ;;     (dolist (file (directory-files-recursively dir org-agenda-file-regexp))
+  ;;       (add-to-list 'org-agenda-files file t))))
 
-(wood9366/add-to-agenda-files-recursively "~/Dropbox/note/")
+  ;; (wood9366/refresh-agenda-files)
+  )
 
 (general-create-definer ly/org-def
   :prefix ", c")
