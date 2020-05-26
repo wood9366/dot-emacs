@@ -3,4 +3,4 @@
   (setq mac-command-modifier 'none)
   (setq mac-option-modifier 'meta))
 
-(provide 'config-osx)
+(provide 'ly-osx)

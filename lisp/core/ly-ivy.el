@@ -85,4 +85,4 @@
 (general-def
   "C-s" 'ly/search)
 
-(provide 'config-ivy)
+(provide 'ly-ivy)

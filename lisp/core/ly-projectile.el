@@ -27,4 +27,4 @@
                initial-input (projectile-project-root))
     (message "no search tool found")))
 
-(provide 'config-projectile)
+(provide 'ly-projectile)

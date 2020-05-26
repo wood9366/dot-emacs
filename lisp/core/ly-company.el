@@ -29,4 +29,4 @@
           (company-dabbrev-code company-gtags company-etags company-keywords)
           company-dabbrev)))
 
-(provide 'config-company)
+(provide 'ly-company)

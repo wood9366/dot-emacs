@@ -36,4 +36,4 @@
 
   (evil-leader/set-key "w" 'hydra-window/body))
 
-(provide 'config-windows)
+(provide 'ly-windows)

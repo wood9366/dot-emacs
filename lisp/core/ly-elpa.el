@@ -32,4 +32,4 @@ locate PACKAGE."
      (message "Couldn't install optional package `%s': %S" package err)
      nil)))
 
-(provide 'config-elpa)
+(provide 'ly-elpa)

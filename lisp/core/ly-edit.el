@@ -100,4 +100,4 @@
   :config
   (add-hook 'prog-mode-hook #'origami-mode))
 
-(provide 'config-edit)
+(provide 'ly-edit)

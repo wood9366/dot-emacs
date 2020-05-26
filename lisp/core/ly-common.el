@@ -130,4 +130,4 @@
 ;;         (error "File does not exist: %s" file))
 ;;       (vlf file))))
 
-(provide 'config-common)
+(provide 'ly-common)

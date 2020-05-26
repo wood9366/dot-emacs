@@ -2,4 +2,4 @@
 (use-package flycheck
   :ensure t)
 
-(provide 'config-flycheck)
+(provide 'ly-flycheck)

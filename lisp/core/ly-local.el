@@ -6,4 +6,4 @@
                 (message "load local config %s" local-config)
                 (load-file local-config)))))
 
-(provide 'config-local)
+(provide 'ly-local)

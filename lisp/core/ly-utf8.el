@@ -12,4 +12,4 @@
 (setq locale-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
-(provide 'config-utf8)
+(provide 'ly-utf8)

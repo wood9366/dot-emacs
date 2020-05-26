@@ -40,4 +40,4 @@
           evil-emacs-state-cursor  'hbar) ; _
     ))
 
-(provide 'config-evil)
+(provide 'ly-evil)

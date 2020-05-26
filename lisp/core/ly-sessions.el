@@ -68,4 +68,4 @@
                 tags-file-name
                 tags-table-list)))
 
-(provide 'config-sessions)
+(provide 'ly-sessions)

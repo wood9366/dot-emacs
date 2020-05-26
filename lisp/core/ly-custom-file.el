@@ -6,4 +6,4 @@
 (if (file-exists-p custom-file)
     (load custom-file))
 
-(provide 'config-custom-file)
+(provide 'ly-custom-file)

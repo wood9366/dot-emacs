@@ -5,11 +5,11 @@
 (require 'ly-core-vars)
 
 ;; package
-(require 'config-elpa)
-(require 'config-site-lisp)
+(require 'ly-elpa)
+(require 'ly-site-lisp)
 
-(require 'config-custom-file)
-(require 'config-local)
+(require 'ly-custom-file)
+(require 'ly-local)
 
 (require-package 'use-package)
 
@@ -26,33 +26,33 @@
   :ensure t)
 
 ;; environment
-(require 'config-utf8)
-(require 'config-exec-path)
-(require 'config-sessions)
-(require 'config-osx)
+(require 'ly-utf8)
+(require 'ly-exec-path)
+(require 'ly-sessions)
+(require 'ly-osx)
 
-(require 'config-evil)
+(require 'ly-evil)
 
 ;; basic
-(require 'config-common)
-(require 'config-edit)
+(require 'ly-common)
+(require 'ly-edit)
 
 ;; theme
-(require 'config-font)
-(require 'config-theme)
-(require 'config-status-bar)
+(require 'ly-font)
+(require 'ly-theme)
+(require 'ly-status-bar)
 
 ;; candidate framework
-(require 'config-smex)
-(require 'config-ivy)
+(require 'ly-smex)
+(require 'ly-ivy)
 
 ;; complete
-(require 'config-company)
+(require 'ly-company)
 
 ;; utilities
-(require 'config-dired)
-(require 'config-projectile)
-(require 'config-flycheck)
+(require 'ly-dired)
+(require 'ly-projectile)
+(require 'ly-flycheck)
 
 (require 'ly-core-key-bind)
 

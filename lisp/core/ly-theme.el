@@ -12,4 +12,4 @@
             ;; Highlight current line
             (global-hl-line-mode)))
 
-(provide 'config-theme)
+(provide 'ly-theme)

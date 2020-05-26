@@ -28,4 +28,4 @@
   :ensure t
   :hook (dired-mode . diredfl-mode))
 
-(provide 'config-dired)
+(provide 'ly-dired)
