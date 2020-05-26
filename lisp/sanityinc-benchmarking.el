@@ -62,4 +62,4 @@ LOAD-DURATION is the time taken in milliseconds to load FEATURE.")
 
 (add-hook 'after-init-hook 'sanityinc/show-init-time)
 
-(provide 'config-benchmarking)
+(provide 'sanityinc-benchmarking)
