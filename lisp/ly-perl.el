@@ -1,6 +1,7 @@
 
 (use-package cperl-mode
   :mode "\\.\\([pP][Llm]\\|al\\|t\\)\\'"
+  :mode "Construct"
   :interpreter "perl"
   :interpreter "perl5"
   :interpreter "miniperl"
