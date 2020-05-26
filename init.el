@@ -32,7 +32,10 @@
 (require 'ly-csharp)
 (require 'ly-vue)
 (require 'ly-js)
+(require 'ly-react)
 (require 'ly-json)
+(require 'ly-yaml)
+(require 'ly-cpp)
 
 ;; (require 'config-lisp)
 ;; (require 'config-cpp)
