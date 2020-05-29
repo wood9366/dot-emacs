@@ -1,6 +1,6 @@
 
-(add-to-list 'load-path (expand-file-name "core"
-                                          (file-name-directory (ly/current-elisp-path))))
+(add-to-list 'load-path
+             (expand-file-name "core" (file-name-directory (ly/current-elisp-path))))
 
 (require 'ly-core-vars)
 
@@ -11,19 +11,19 @@
 (require 'ly-custom-file)
 (require 'ly-local)
 
-(require-package 'use-package)
+;; install use-package
+;; use use-package install and config other packages
+(sanityinc/require-package 'use-package)
 
-(use-package diminish
-  :ensure t)
+;; key bind packages
+(use-package general :ensure t)
+(use-package hydra :ensure t)
 
-(use-package hydra
-  :ensure t)
+;; hide or short minor mode display
+(use-package diminish :ensure t)
 
-(use-package general
-  :ensure t)
-
-(use-package fullframe
-  :ensure t)
+;; max/min specific window
+(use-package fullframe :ensure t)
 
 ;; environment
 (require 'ly-utf8)
